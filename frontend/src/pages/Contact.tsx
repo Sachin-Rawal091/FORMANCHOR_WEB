@@ -204,7 +204,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4>Support Email</h4>
-                <p>support@formpilot.dev</p>
+                <p>sachinrawal473@gmail.com</p>
               </div>
             </div>
 
