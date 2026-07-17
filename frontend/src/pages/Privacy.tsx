@@ -93,7 +93,7 @@ export default function Privacy() {
           <ul>
             <li>
               <Icon name="mail" className="icon" />
-              <div>privacy@formpilot.dev</div>
+              <div>sachinrawal473@gmail.com</div>
             </li>
           </ul>
         </div>

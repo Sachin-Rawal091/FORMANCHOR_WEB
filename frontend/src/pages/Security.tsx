@@ -87,7 +87,7 @@ export default function Security() {
           </p>
           <div style={{ marginTop: 24, padding: 16, background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)', display: 'inline-flex', alignItems: 'center', gap: 12 }}>
             <Icon name="mail" className="text-primary" />
-            <span style={{ fontFamily: 'monospace', fontSize: 14 }}>security@formpilot.dev</span>
+            <span style={{ fontFamily: 'monospace', fontSize: 14 }}>sachinrawal473@gmail.com</span>
           </div>
           <p style={{ marginTop: 16, fontSize: 13, color: 'var(--text-muted)' }}>
             We will acknowledge receipt of your report within 48 hours and work with you to patch the issue before public disclosure.
