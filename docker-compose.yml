@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb+srv://sachinrawal473_db_user:w1y9vqdWWx2IDZYT@formpilotemplate.pg6qozl.mongodb.net/
+      - DB_NAME=formpilot_db
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - NOTIFICATION_EMAIL=${NOTIFICATION_EMAIL}
+
+    restart: always
+
+#   db:
+#     image: mongo:latest
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo_data:/data/db
+#     restart: always
+# 
+# volumes:
+#   mongo_data:
+

@@ -1,0 +1,60 @@
+# Dependency directories
+node_modules/
+node_modules**/
+venv/
+backend/venv/
+backend/__pycache__/
+__pycache__/
+.pytest_cache/
+.cache/
+
+# Python compilation files
+*.py[cod]
+*$py.class
+*.so
+
+# Production build outputs and lockfiles
+frontend/dist/
+dist/
+dist-ssr/
+*.egg-info/
+.eggs/
+
+# Environment variables and secrets (CRITICAL)
+.env
+.env.*
+backend/.env
+frontend/.env
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases and local test storage
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs and diagnostic files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor and OS system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-project
+*.sublime-workspace
+
