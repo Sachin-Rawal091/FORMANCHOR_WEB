@@ -208,7 +208,13 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="glass-card info-card">
+            <a 
+              href="https://github.com/Sachin-Rawal091/FormPilot" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="glass-card info-card" 
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               <div className="info-icon">
                 <Icon name="code" size={20} />
               </div>
@@ -216,7 +222,7 @@ export default function Contact() {
                 <h4>GitHub Repository</h4>
                 <p>github.com/Sachin-Rawal091/FormPilot</p>
               </div>
-            </div>
+            </a>
 
             <div className="glass-card info-card">
               <div className="info-icon">
