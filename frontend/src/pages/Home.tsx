@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import demoGif from '../assets/demo.gif'
 
 export default function Home() {
   const containerRef = useScrollReveal()
@@ -33,7 +34,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Product Showcase Mockup ── */}
+      {/* ── Product Showcase Demo ── */}
       <section className="fade-in-section" style={{ marginBottom: 128 }}>
         <div className="product-showcase">
           <div className="product-showcase-gradient" />
@@ -47,72 +48,13 @@ export default function Home() {
               </div>
               <div className="mock-url-bar">chrome-extension://formpilot/dashboard</div>
             </div>
-            {/* Fake panels */}
-            <div className="mock-panels">
-              <div className="mock-sidebar glass-card" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <div className="mock-menu-item active" style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', borderRadius: 'var(--radius-sm)', background: 'rgba(91, 140, 255, 0.12)', border: '1px solid rgba(91, 140, 255, 0.2)', color: 'var(--primary)', fontSize: 12, fontWeight: 600 }}>
-                  <Icon name="dashboard" size={16} />
-                  Dashboard
-                </div>
-                <div className="mock-menu-item" style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', borderRadius: 'var(--radius-sm)', color: 'var(--text-muted)', fontSize: 12 }}>
-                  <Icon name="table_chart" size={16} />
-                  Excel Data
-                </div>
-                <div className="mock-menu-item" style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', borderRadius: 'var(--radius-sm)', color: 'var(--text-muted)', fontSize: 12 }}>
-                  <Icon name="history" size={16} />
-                  Execution Logs
-                </div>
-                <div className="mock-menu-item" style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', borderRadius: 'var(--radius-sm)', color: 'var(--text-muted)', fontSize: 12 }}>
-                  <Icon name="settings" size={16} />
-                  Settings
-                </div>
-              </div>
-              <div className="mock-main glass-card" style={{ display: 'flex', flexDirection: 'column', gap: 16, overflow: 'hidden' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, margin: 0 }}>Saved Workflows</h3>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'var(--primary)', color: '#fff', padding: '6px 12px', borderRadius: 'var(--radius-sm)', fontSize: 11, fontWeight: 600, cursor: 'pointer' }}>
-                    <Icon name="add" size={14} />
-                    Record New
-                  </div>
-                </div>
-                <div style={{ flex: 1, border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-sm)', overflow: 'hidden', display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,0.1)' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '80px 180px 100px 1fr', padding: '10px 16px', fontSize: 10, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', alignItems: 'center', height: 36, borderBottom: '1px solid var(--border-glass)' }}>
-                    <div>Status</div>
-                    <div>Workflow</div>
-                    <div>Source</div>
-                    <div>Last Run</div>
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '80px 180px 100px 1fr', padding: '10px 16px', fontSize: 11, alignItems: 'center', borderBottom: '1px solid var(--border-glass)', background: 'rgba(255,255,255,0.01)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--success)' }}>
-                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--success)', display: 'inline-block' }} />
-                        Active
-                      </div>
-                      <div style={{ fontWeight: 600 }}>KRP Loan Registration</div>
-                      <div style={{ color: 'var(--text-muted)', fontSize: 10 }}>krp_data.xlsx</div>
-                      <div style={{ color: 'var(--text-muted)', fontSize: 10 }}>10m ago (Success)</div>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '80px 180px 100px 1fr', padding: '10px 16px', fontSize: 11, alignItems: 'center', borderBottom: '1px solid var(--border-glass)', background: 'rgba(255,255,255,0.01)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--success)' }}>
-                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--success)', display: 'inline-block' }} />
-                        Active
-                      </div>
-                      <div style={{ fontWeight: 600 }}>Job Applicant Flow</div>
-                      <div style={{ color: 'var(--text-muted)', fontSize: 10 }}>candidates.xlsx</div>
-                      <div style={{ color: 'var(--text-muted)', fontSize: 10 }}>2h ago (Success)</div>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '80px 180px 100px 1fr', padding: '10px 16px', fontSize: 11, alignItems: 'center', background: 'rgba(255,255,255,0.01)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)' }}>
-                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--text-muted)', display: 'inline-block' }} />
-                        Idle
-                      </div>
-                      <div style={{ fontWeight: 600 }}>Scholarship Portal</div>
-                      <div style={{ color: 'var(--text-muted)', fontSize: 10 }}>students.xlsx</div>
-                      <div style={{ color: 'var(--text-muted)', fontSize: 10 }}>2d ago</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Live Animated Demo GIF */}
+            <div style={{ borderRadius: '0 0 var(--radius-lg) var(--radius-lg)', overflow: 'hidden', display: 'flex', background: '#090a0f' }}>
+              <img
+                src={demoGif}
+                alt="FormPilot automated form filling live demo"
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+              />
             </div>
           </div>
         </div>
