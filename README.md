@@ -102,3 +102,10 @@ If you want to host only the frontend landing page (for example, on GitHub Pages
    ```
 2. This generates a compiled, optimized static bundle in the `frontend/dist/` folder.
 3. You can upload or deploy the contents of `frontend/dist/` directly to any static web host. Since the client router is a **Hash Router** (`#/`, `#/about`), page refreshes and direct bookmarks will work out-of-the-box on GitHub Pages without requiring any 404 redirection hacks.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
