@@ -1,4 +1,4 @@
-# Motion & Interaction System — FormPilot Website Showcase
+# Motion & Interaction System — FormAnchor Website Showcase
 > Extracted from Stitch-generated HTML scroll animation script + reference images
 
 ## Timing
