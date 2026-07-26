@@ -1,6 +1,6 @@
-# FormPilot Web Showcase (Excellent Edition)
+# FormAnchor Web Showcase (Excellent Edition)
 
-A premium marketing + legal website showcase for the **FormPilot** Chrome Extension. It features a responsive, dark-glassmorphic frontend built with React & TypeScript, and a lightweight, rate-limited FastAPI backend integrated with MongoDB.
+A premium marketing + legal website showcase for the **FormAnchor** Chrome Extension. It features a responsive, dark-glassmorphic frontend built with React & TypeScript, and a lightweight, rate-limited FastAPI backend integrated with MongoDB.
 
 ---
 
