@@ -7,8 +7,8 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MONGO_URI=mongodb+srv://sachinrawal473_db_user:w1y9vqdWWx2IDZYT@formpilotemplate.pg6qozl.mongodb.net/
-      - DB_NAME=formpilot_db
+      - MONGO_URI=${MONGO_URI:-mongodb://localhost:27017}
+      - DB_NAME=${DB_NAME:-formanchor_db}
       - RESEND_API_KEY=${RESEND_API_KEY}
       - NOTIFICATION_EMAIL=${NOTIFICATION_EMAIL}
 
