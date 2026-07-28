@@ -1,4 +1,5 @@
 import os
+import html
 import logging
 import resend
 from pathlib import Path
@@ -37,21 +38,24 @@ def send_contact_notification(name: str, sender_email: str, subject: str, messag
     try:
         logger.info(f"Sending email notification for submission from {name} ({sender_email}) with subject: {subject}...")
         
-        # Format message content to HTML breaks before f-string (Python < 3.12 doesn't support backslashes inside f-string brackets)
-        message_html = message_content.replace('\n', '<br>')
+        # HTML escape user inputs to prevent XSS / HTML injection in email clients
+        safe_name = html.escape(name)
+        safe_email = html.escape(sender_email)
+        safe_subject = html.escape(subject)
+        safe_message = html.escape(message_content).replace('\n', '<br>')
 
         email_params = {
             "from": from_address,
             "to": NOTIFICATION_EMAIL,
-            "subject": f"FormAnchor [{subject}]: New Message from {name}",
+            "subject": f"FormAnchor [{safe_subject}]: New Message from {safe_name}",
             "html": f"""
             <h3>New Contact Form Submission</h3>
-            <p><strong>Name:</strong> {name}</p>
-            <p><strong>Email:</strong> {sender_email}</p>
-            <p><strong>Subject:</strong> {subject}</p>
+            <p><strong>Name:</strong> {safe_name}</p>
+            <p><strong>Email:</strong> {safe_email}</p>
+            <p><strong>Subject:</strong> {safe_subject}</p>
             <p><strong>Message:</strong></p>
             <blockquote style="border-left: 3px solid #5b8cff; padding-left: 12px; margin-left: 0; color: #555;">
-                {message_html}
+                {safe_message}
             </blockquote>
             <hr style="border: 0; border-top: 1px solid #eee; margin-top: 24px;" />
             <p style="font-size: 11px; color: #888;">This email was sent automatically by the FormAnchor Web Showcase backend.</p>

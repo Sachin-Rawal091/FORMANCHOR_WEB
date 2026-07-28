@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { getApiUrl, isValidEmail } from '../utils/api'
 
 export default function Install() {
   const containerRef = useScrollReveal()
@@ -10,7 +11,7 @@ export default function Install() {
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email.trim() || !isValidEmail(email)) {
       setStatus('error')
       setStatusMessage('Please enter a valid email address.')
       return
@@ -18,9 +19,7 @@ export default function Install() {
 
     setStatus('submitting')
 
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:8000/api/subscribe'
-      : '/api/subscribe'
+    const API_URL = getApiUrl('/api/subscribe')
 
     try {
       const response = await fetch(API_URL, {
