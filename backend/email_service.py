@@ -5,7 +5,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Setup logging
-logger = logging.getLogger("formpilot-backend")
+logger = logging.getLogger("formanchor-backend")
 
 # Load environment variables
 dotenv_path = Path(__file__).resolve().parent / ".env"
@@ -32,7 +32,7 @@ def send_contact_notification(name: str, sender_email: str, subject: str, messag
     # Check if using the default Resend onboarding address
     from_address = "onboarding@resend.dev"
     # If you verify a domain in Resend later, you can change this to:
-    # from_address = "FormPilot Notifications <notifications@yourdomain.com>"
+    # from_address = "FormAnchor Notifications <notifications@yourdomain.com>"
 
     try:
         logger.info(f"Sending email notification for submission from {name} ({sender_email}) with subject: {subject}...")
@@ -43,7 +43,7 @@ def send_contact_notification(name: str, sender_email: str, subject: str, messag
         email_params = {
             "from": from_address,
             "to": NOTIFICATION_EMAIL,
-            "subject": f"FormPilot [{subject}]: New Message from {name}",
+            "subject": f"FormAnchor [{subject}]: New Message from {name}",
             "html": f"""
             <h3>New Contact Form Submission</h3>
             <p><strong>Name:</strong> {name}</p>
@@ -54,7 +54,7 @@ def send_contact_notification(name: str, sender_email: str, subject: str, messag
                 {message_html}
             </blockquote>
             <hr style="border: 0; border-top: 1px solid #eee; margin-top: 24px;" />
-            <p style="font-size: 11px; color: #888;">This email was sent automatically by the FormPilot Web Showcase backend.</p>
+            <p style="font-size: 11px; color: #888;">This email was sent automatically by the FormAnchor Web Showcase backend.</p>
             """
         }
 

@@ -5,7 +5,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 
 # Setup logger
-logger = logging.getLogger("formpilot-backend")
+logger = logging.getLogger("formanchor-backend")
 logger.setLevel(logging.INFO)
 
 # Load environment variables from the .env file in the backend directory
@@ -14,7 +14,7 @@ load_dotenv(dotenv_path=dotenv_path, override=True)
 
 # Get MongoDB URI from environment variables
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
-DB_NAME = os.getenv("DB_NAME", "formpilot_db")
+DB_NAME = os.getenv("DB_NAME", "formanchor_db")
 
 
 # Initialize motor client
