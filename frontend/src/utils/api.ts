@@ -6,7 +6,7 @@ export function getApiUrl(endpoint: string): string {
   const envBase = import.meta.env.VITE_API_BASE_URL
   const isLocal = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname)
   
-  const baseUrl = envBase || (isLocal ? 'http://localhost:8000' : '')
+  const baseUrl = envBase || (isLocal ? 'http://localhost:8000' : 'https://formpilot-web.onrender.com')
   const formattedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
   
   return `${baseUrl}${formattedEndpoint}`
