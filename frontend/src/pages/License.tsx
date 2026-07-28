@@ -11,7 +11,7 @@ export default function License() {
         <h1>
           <span className="gradient-text">License Terms</span>
         </h1>
-        <p>FormPilot is released under the permissive open-source MIT License. Read the full terms below.</p>
+        <p>FormAnchor is released under the permissive open-source MIT License. Read the full terms below.</p>
       </section>
 
       {/* Main License Card */}
@@ -52,7 +52,7 @@ SOFTWARE.`}
             <li>
               <Icon name="check_circle" className="icon" />
               <div>
-                <strong>Commercial Use:</strong> You can run FormPilot for any personal or company-wide form automation task.
+                <strong>Commercial Use:</strong> You can run FormAnchor for any personal or company-wide form automation task.
               </div>
             </li>
             <li>

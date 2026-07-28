@@ -31,9 +31,9 @@ export default function Header({ currentRoute, theme, onToggleTheme }: HeaderPro
           {/* Brand */}
           <a href="#/" className="logo" onClick={() => handleNav('#/')}>
             <div className="logo-icon">
-              <Icon name="flight_takeoff" filled size={18} />
+              <Icon name="anchor" filled size={18} />
             </div>
-            <span className="logo-text">FormPilot</span>
+            <span className="logo-text">FormAnchor</span>
           </a>
 
           {/* Desktop Nav Links */}

@@ -12,7 +12,7 @@ export default function Security() {
           <Icon name="shield" size={48} className="text-primary" />
           <span className="gradient-text">Security Policy</span>
         </h1>
-        <p>FormPilot is built with security at its core. Learn about our local sandbox architecture and security practices.</p>
+        <p>FormAnchor is built with security at its core. Learn about our local sandbox architecture and security practices.</p>
       </section>
 
       {/* Security Principles Section */}
@@ -44,7 +44,7 @@ export default function Security() {
             </div>
             <h3>No Telemetry or Tracking</h3>
             <p>
-              FormPilot includes zero tracking cookies, advertising trackers, user identifiers, or analytics scripts. Your workflows are private.
+              FormAnchor includes zero tracking cookies, advertising trackers, user identifiers, or analytics scripts. Your workflows are private.
             </p>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function Security() {
         <div className="content-card glass-card">
           <h2>Report a Vulnerability</h2>
           <p>
-            If you discover a security vulnerability in FormPilot, we appreciate your support in disclosing it responsibly. Please do not open a public GitHub issue. Instead, report it privately to our security team.
+            If you discover a security vulnerability in FormAnchor, we appreciate your support in disclosing it responsibly. Please do not open a public GitHub issue. Instead, report it privately to our security team.
           </p>
           <div style={{ marginTop: 24, padding: 16, background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)', display: 'inline-flex', alignItems: 'center', gap: 12 }}>
             <Icon name="mail" className="text-primary" />

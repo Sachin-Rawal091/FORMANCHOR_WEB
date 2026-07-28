@@ -19,8 +19,8 @@ export default function About() {
   return (
     <div ref={containerRef}>
       <section className="page-hero fade-in-section">
-        <h1><span className="gradient-text">About FormPilot</span></h1>
-        <p>Learn how FormPilot revolutionizes form automation for teams of all sizes.</p>
+        <h1><span className="gradient-text">About FormAnchor</span></h1>
+        <p>Learn how FormAnchor revolutionizes form automation for teams of all sizes.</p>
       </section>
 
       {/* Mission */}
@@ -28,7 +28,7 @@ export default function About() {
         <div className="content-card glass-card">
           <h2>Our Mission</h2>
           <p>
-            FormPilot exists to eliminate the tedious, error-prone process of manual form filling.
+            FormAnchor exists to eliminate the tedious, error-prone process of manual form filling.
             We believe that no team should waste hours entering repetitive data when technology can
             do it perfectly — faster, safer, and at any scale.
           </p>
@@ -38,14 +38,14 @@ export default function About() {
       {/* How It Works Pipeline */}
       <section className="section fade-in-section">
         <div className="section-header">
-          <h2>How FormPilot Works</h2>
+          <h2>How FormAnchor Works</h2>
           <p>A simple 4-step pipeline from recording to automated execution.</p>
         </div>
         <div className="pipeline">
           {[
             { icon: 'radio_button_checked', color: 'red' as const, step: '1', title: 'Record', desc: 'Record your form flow once using the built-in visual recorder.' },
             { icon: 'upload_file', color: 'blue' as const, step: '2', title: 'Upload', desc: 'Upload an Excel or CSV file with your structured data.' },
-            { icon: 'play_arrow', color: 'green' as const, step: '3', title: 'Execute', desc: 'FormPilot fills hundreds of forms automatically with zero errors.' },
+            { icon: 'play_arrow', color: 'green' as const, step: '3', title: 'Execute', desc: 'FormAnchor fills hundreds of forms automatically with zero errors.' },
             { icon: 'refresh', color: 'violet' as const, step: '4', title: 'Recover', desc: 'Smart retry handles failures, dynamic content, and page reloads.' },
           ].map((s) => (
             <div key={s.step} className="pipeline-step glass-card">
