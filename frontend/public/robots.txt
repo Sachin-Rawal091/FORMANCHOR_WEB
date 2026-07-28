@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sachin-rawal091.github.io/FORMPILOT/sitemap.xml
+Sitemap: https://sachin-rawal091.github.io/FormAnchor/sitemap.xml
