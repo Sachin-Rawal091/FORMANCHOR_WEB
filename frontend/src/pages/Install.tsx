@@ -53,7 +53,7 @@ export default function Install() {
       {/* Page Hero */}
       <section className="page-hero fade-in-section">
         <h1>
-          <span className="gradient-text">Install FormPilot</span>
+          <span className="gradient-text">Install FormAnchor</span>
         </h1>
         <p>Get up and running in under 2 minutes with our simple installation guide.</p>
       </section>
@@ -112,7 +112,7 @@ export default function Install() {
             { step: '2', title: 'Open Extensions Panel', desc: 'Open your Google Chrome browser and navigate to chrome://extensions/ in your address bar.' },
             { step: '3', title: 'Enable Developer Mode', desc: 'Locate and click the "Developer mode" toggle switch in the top right corner of the extension list dashboard.' },
             { step: '4', title: 'Load Unpacked', desc: 'Click the "Load unpacked" button in the top left header, then navigate to and select your extracted directory.' },
-            { step: '5', title: 'Confirm & Pin', desc: 'FormPilot is now installed! Pin it to your extension toolbar for immediate visual flow recording access.' },
+            { step: '5', title: 'Confirm & Pin', desc: 'FormAnchor is now installed! Pin it to your extension toolbar for immediate visual flow recording access.' },
           ].map((item) => (
             <div key={item.step} className="install-step glass-card">
               <div className="step-number">{item.step}</div>
@@ -129,7 +129,7 @@ export default function Install() {
       <section className="section fade-in-section">
         <div className="section-header">
           <h2>Permissions Explained</h2>
-          <p>We respect your privacy. FormPilot only asks for the bare minimum permissions needed to automate forms local-first.</p>
+          <p>We respect your privacy. FormAnchor only asks for the bare minimum permissions needed to automate forms local-first.</p>
         </div>
 
         <div className="permissions-grid">
@@ -182,7 +182,7 @@ export default function Install() {
               Does it work in Incognito windows?
             </h4>
             <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.6 }}>
-              By default, Chrome disables extensions in Incognito mode. You must manually open chrome://extensions, locate FormPilot, click "Details", and toggle the "Allow in Incognito" switch on.
+              By default, Chrome disables extensions in Incognito mode. You must manually open chrome://extensions, locate FormAnchor, click "Details", and toggle the "Allow in Incognito" switch on.
             </p>
           </div>
         </div>

@@ -27,7 +27,7 @@ export default function VideoShowcase() {
           <div className="video-overlay" onClick={handlePlayClick}>
             <img 
               src="/media/demo.gif" 
-              alt="FormPilot Live Demo Preview" 
+              alt="FormAnchor Live Demo Preview" 
               style={{
                 position: 'absolute',
                 top: 0,
@@ -55,7 +55,7 @@ export default function VideoShowcase() {
               borderRadius: '20px',
               border: '1px solid rgba(255,255,255,0.1)'
             }}>
-              Watch FormPilot automate a 4-step wizard
+              Watch FormAnchor automate a 4-step wizard
             </span>
           </div>
         )}

@@ -209,7 +209,7 @@ export default function Contact() {
             </div>
 
             <a 
-              href="https://github.com/Sachin-Rawal091/FormPilot" 
+              href="https://github.com/Sachin-Rawal091/FormAnchor" 
               target="_blank" 
               rel="noopener noreferrer"
               className="glass-card info-card" 
@@ -220,7 +220,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4>GitHub Repository</h4>
-                <p>github.com/Sachin-Rawal091/FormPilot</p>
+                <p>github.com/Sachin-Rawal091/FormAnchor</p>
               </div>
             </a>
 

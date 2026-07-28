@@ -12,10 +12,10 @@ export default function Footer() {
         {/* Brand */}
         <a href="#/" className="logo" onClick={() => handleNav('#/')}>
           <div className="logo-icon" style={{ width: 24, height: 24, borderRadius: 6 }}>
-            <Icon name="flight_takeoff" filled size={14} />
+            <Icon name="anchor" filled size={14} />
           </div>
           <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 18, color: 'var(--text)' }}>
-            FormPilot
+            FormAnchor
           </span>
         </a>
 
@@ -29,7 +29,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="footer-copy">
-          © {new Date().getFullYear()} FormPilot. All rights reserved.
+          © {new Date().getFullYear()} FormAnchor. All rights reserved.
         </div>
       </div>
     </footer>

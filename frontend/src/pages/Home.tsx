@@ -1,6 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
-import demoGif from '../assets/demo.gif'
+import autofillVideo from '../assets/autofill_demo.mp4'
 
 export default function Home() {
   const containerRef = useScrollReveal()
@@ -19,7 +19,7 @@ export default function Home() {
           and Get More Done Together
         </h1>
         <p className="hero-subtitle">
-          Record your workflows once, map data from Excel or CSV, and let FormPilot
+          Record your workflows once, map data from Excel or CSV, and let FormAnchor
           execute tedious data entry tasks with pinpoint accuracy across your entire team.
         </p>
         <div className="hero-ctas">
@@ -35,7 +35,7 @@ export default function Home() {
       </section>
 
       {/* ── Product Showcase Demo ── */}
-      <section className="fade-in-section" style={{ marginBottom: 128 }}>
+      <section className="fade-in-section" style={{ marginBottom: 128, padding: '0 16px' }}>
         <div className="product-showcase">
           <div className="product-showcase-gradient" />
           <div className="product-showcase-inner">
@@ -46,15 +46,31 @@ export default function Home() {
                 <div className="mock-dot yellow" />
                 <div className="mock-dot green" />
               </div>
-              <div className="mock-url-bar">chrome-extension://formpilot/dashboard</div>
+              <div className="mock-url-bar">
+                <Icon name="lock" size={12} style={{ opacity: 0.7 }} />
+                <span>chrome-extension://formanchor/autofill-demo</span>
+              </div>
+              <div className="mock-badge">
+                <span className="live-dot" />
+                Autofill Live Demo
+              </div>
             </div>
-            {/* Live Animated Demo GIF */}
-            <div style={{ borderRadius: '0 0 var(--radius-lg) var(--radius-lg)', overflow: 'hidden', display: 'flex', background: '#090a0f' }}>
-              <img
-                src={demoGif}
-                alt="FormPilot automated form filling live demo"
-                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+            {/* Live Recording Video Showcase */}
+            <div className="showcase-video-wrapper">
+              <video
+                src={autofillVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="showcase-video"
               />
+              <div className="showcase-video-overlay">
+                <div className="showcase-status-tag">
+                  <Icon name="bolt" size={14} style={{ color: '#60a5fa' }} />
+                  <strong style={{ color: '#60a5fa', fontWeight: 600 }}>FormAnchor Engine Active</strong> — KRP Multi-Step Registration
+                </div>
+              </div>
             </div>
           </div>
         </div>

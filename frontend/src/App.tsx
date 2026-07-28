@@ -50,15 +50,15 @@ export default function App() {
 
       // SEO: update tab title
       const titles: Record<PageRoute, string> = {
-        home: 'FormPilot — Automate Form Filling at Scale',
-        about: 'About — FormPilot',
-        install: 'Install — FormPilot',
-        faq: 'FAQ — FormPilot',
-        contact: 'Contact — FormPilot',
-        privacy: 'Privacy Policy — FormPilot',
-        security: 'Security — FormPilot',
-        license: 'License — FormPilot',
-        '404': 'Page Not Found — FormPilot',
+        home: 'FormAnchor — Automate Form Filling at Scale',
+        about: 'About — FormAnchor',
+        install: 'Install — FormAnchor',
+        faq: 'FAQ — FormAnchor',
+        contact: 'Contact — FormAnchor',
+        privacy: 'Privacy Policy — FormAnchor',
+        security: 'Security — FormAnchor',
+        license: 'License — FormAnchor',
+        '404': 'Page Not Found — FormAnchor',
       }
       document.title = titles[targetRoute]
     }

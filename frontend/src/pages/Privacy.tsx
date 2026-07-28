@@ -19,13 +19,13 @@ export default function Privacy() {
         <div className="content-card glass-card" style={{ marginBottom: 24 }}>
           <h2>Local-First Commitment</h2>
           <p>
-            At FormPilot, we believe your data belongs to you. FormPilot is built to be a fully client-side, local-first browser extension. We do not harvest, collect, or transmit any user data, spreadsheet information, or recorded web flows to any external servers.
+            At FormAnchor, we believe your data belongs to you. FormAnchor is built to be a fully client-side, local-first browser extension. We do not harvest, collect, or transmit any user data, spreadsheet information, or recorded web flows to any external servers.
           </p>
         </div>
 
         <div className="content-card glass-card" style={{ marginBottom: 24 }}>
           <h2>1. Data Collection &amp; Access</h2>
-          <p>To perform its automated form-filling duties, FormPilot accesses and handles the following data locally:</p>
+          <p>To perform its automated form-filling duties, FormAnchor accesses and handles the following data locally:</p>
           <ul>
             <li>
               <Icon name="check_circle" className="icon" />
@@ -73,7 +73,7 @@ export default function Privacy() {
             <li>
               <Icon name="cloud_off" className="icon" />
               <div>
-                <strong>No Cloud Storage:</strong> FormPilot does not use any cloud servers, databases, or third-party storage providers.
+                <strong>No Cloud Storage:</strong> FormAnchor does not use any cloud servers, databases, or third-party storage providers.
               </div>
             </li>
           </ul>
@@ -85,7 +85,7 @@ export default function Privacy() {
         <div className="content-card glass-card" style={{ marginBottom: 24 }}>
           <h2>3. Zero Third-Party Integrations</h2>
           <p>
-            FormPilot contains no external analytics scripts, user behavior tracking, cookies, or telemetry software. Spreadsheet parsing is processed natively in-browser using the local <code>SheetJS</code> library, meaning your data files never touch any external server.
+            FormAnchor contains no external analytics scripts, user behavior tracking, cookies, or telemetry software. Spreadsheet parsing is processed natively in-browser using the local <code>SheetJS</code> library, meaning your data files never touch any external server.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default function Privacy() {
         <div className="content-card glass-card" style={{ marginBottom: 24 }}>
           <h2>3.5. Chrome Web Store Limited Use Compliance</h2>
           <p>
-            FormPilot's use of requested permissions and accessed data complies with the Chrome Web Store{' '}
+            FormAnchor's use of requested permissions and accessed data complies with the Chrome Web Store{' '}
             <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)' }}>
               Limited Use
             </a>{' '}
@@ -103,31 +103,31 @@ export default function Privacy() {
             <li>
               <Icon name="block" className="icon" />
               <div>
-                <strong>No PII Collection:</strong> FormPilot does not collect, store, or process personally identifiable information beyond what you explicitly provide in your uploaded spreadsheets. All such data remains local.
+                <strong>No PII Collection:</strong> FormAnchor does not collect, store, or process personally identifiable information beyond what you explicitly provide in your uploaded spreadsheets. All such data remains local.
               </div>
             </li>
             <li>
               <Icon name="block" className="icon" />
               <div>
-                <strong>No Sale or Transfer to Third Parties:</strong> FormPilot does not sell, license, or transfer any user data to third parties for any purpose, including advertising, analytics, credit assessment, or data brokerage.
+                <strong>No Sale or Transfer to Third Parties:</strong> FormAnchor does not sell, license, or transfer any user data to third parties for any purpose, including advertising, analytics, credit assessment, or data brokerage.
               </div>
             </li>
             <li>
               <Icon name="block" className="icon" />
               <div>
-                <strong>No Secondary Use:</strong> All data accessed by FormPilot is used exclusively for its single disclosed purpose — automating web form filling from spreadsheet data. Data is never repurposed for advertising, market research, or any unrelated functionality.
+                <strong>No Secondary Use:</strong> All data accessed by FormAnchor is used exclusively for its single disclosed purpose — automating web form filling from spreadsheet data. Data is never repurposed for advertising, market research, or any unrelated functionality.
               </div>
             </li>
             <li>
               <Icon name="visibility" className="icon" />
               <div>
-                <strong>Web Browsing Activity Disclosure:</strong> FormPilot accesses web browsing activity (DOM element metadata, page URLs, CSS selectors, and element attributes) <strong>only</strong> during user-initiated recording and execution sessions. This data is stored locally in IndexedDB and is never transmitted to any external server.
+                <strong>Web Browsing Activity Disclosure:</strong> FormAnchor accesses web browsing activity (DOM element metadata, page URLs, CSS selectors, and element attributes) <strong>only</strong> during user-initiated recording and execution sessions. This data is stored locally in IndexedDB and is never transmitted to any external server.
               </div>
             </li>
             <li>
               <Icon name="visibility" className="icon" />
               <div>
-                <strong>Website Content Disclosure:</strong> FormPilot reads and interacts with website content (form field values, button labels, dropdown options) <strong>only</strong> to replay user-recorded fill steps. This interaction is entirely local and user-directed.
+                <strong>Website Content Disclosure:</strong> FormAnchor reads and interacts with website content (form field values, button labels, dropdown options) <strong>only</strong> to replay user-recorded fill steps. This interaction is entirely local and user-directed.
               </div>
             </li>
           </ul>
@@ -136,7 +136,7 @@ export default function Privacy() {
         {/* NEW: Permissions Table */}
         <div className="content-card glass-card" style={{ marginBottom: 24 }}>
           <h2>4. Required Extension Permissions</h2>
-          <p>FormPilot requests the following permissions to operate on your behalf:</p>
+          <p>FormAnchor requests the following permissions to operate on your behalf:</p>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14, marginTop: 16 }}>
               <thead>
@@ -147,7 +147,7 @@ export default function Privacy() {
               </thead>
               <tbody>
                 {[
-                  ['<all_urls>', 'Required to allow FormPilot\'s recorder and executor to interact with form fields on any website you navigate to.'],
+                  ['<all_urls>', 'Required to allow FormAnchor\'s recorder and executor to interact with form fields on any website you navigate to.'],
                   ['storage', 'Save and load recorded flows, user settings, and execution logs in local IndexedDB.'],
                   ['scripting', 'Inject DOM helper libraries (such as safe React-input setters) into your active tab.'],
                   ['notifications', 'Display desktop notifications when user attention is needed (e.g. CAPTCHA detected).'],
