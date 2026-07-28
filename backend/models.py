@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 from pydantic import BaseModel, EmailStr, Field
 
@@ -14,7 +14,7 @@ class ContactSubmissionDB(BaseModel):
     email: EmailStr
     subject: str
     message: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     ip_address: str
     user_agent: str
 
@@ -23,5 +23,5 @@ class SubscribeInput(BaseModel):
 
 class SubscriberDB(BaseModel):
     email: EmailStr
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     ip_address: str

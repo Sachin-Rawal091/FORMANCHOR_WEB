@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { getApiUrl, isValidEmail } from '../utils/api'
 
 export default function Contact() {
   const containerRef = useScrollReveal()
@@ -20,9 +21,8 @@ export default function Contact() {
     if (!formData.name.trim()) tempErrors.name = "Name is required."
     else if (formData.name.length < 2) tempErrors.name = "Name must be at least 2 characters."
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email.trim()) tempErrors.email = "Email is required."
-    else if (!emailRegex.test(formData.email)) tempErrors.email = "Please enter a valid email address."
+    else if (!isValidEmail(formData.email)) tempErrors.email = "Please enter a valid email address."
 
     if (!formData.message.trim()) tempErrors.message = "Message is required."
     else if (formData.message.length < 10) tempErrors.message = "Message must be at least 10 characters."
@@ -50,10 +50,7 @@ export default function Contact() {
 
     setStatus('submitting')
     
-    // Choose local dev API URL or production relative endpoint
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:8000/api/contact'
-      : '/api/contact'
+    const API_URL = getApiUrl('/api/contact')
 
     try {
       const response = await fetch(API_URL, {

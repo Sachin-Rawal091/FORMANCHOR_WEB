@@ -1,11 +1,12 @@
+import os
 import logging
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from fastapi import FastAPI, Request, HTTPException, status, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
-from datetime import datetime
 
 from database import submissions_collection, check_database_connection, subscribers_collection
 from models import ContactSubmissionInput, ContactSubmissionDB, SubscribeInput, SubscriberDB
@@ -14,6 +15,13 @@ from email_service import send_contact_notification
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("formanchor-backend")
+
+def get_client_ip(request: Request) -> str:
+    """Extract client IP address accounting for reverse proxies (X-Forwarded-For)."""
+    forwarded_for = request.headers.get("x-forwarded-for")
+    if forwarded_for:
+        return forwarded_for.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
 
 # Initialize Rate Limiter
 limiter = Limiter(key_func=get_remote_address)
@@ -36,11 +44,13 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# Configure CORS
-# In production, specify the exact domain. For local development, allow all.
+# Configure CORS dynamically via ALLOWED_ORIGINS env variable
+raw_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173")
+allowed_origins = [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -52,7 +62,7 @@ async def health_check():
     db_connected = await check_database_connection()
     return {
         "status": "healthy",
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "database": "connected" if db_connected else "disconnected"
     }
 
@@ -74,7 +84,7 @@ async def submit_contact_form(payload: ContactSubmissionInput, request: Request,
         }
 
     # 2. Extract request metadata
-    client_ip = request.client.host if request.client else "unknown"
+    client_ip = get_client_ip(request)
     user_agent = request.headers.get("user-agent", "unknown")
 
     # 3. Create database entry model
@@ -119,7 +129,7 @@ async def subscribe_email(payload: SubscribeInput, request: Request, background_
     Handle email newsletter/updates subscription.
     Saves email to MongoDB and sends a background email notification.
     """
-    client_ip = request.client.host if request.client else "unknown"
+    client_ip = get_client_ip(request)
 
     # Check if already subscribed
     try:
