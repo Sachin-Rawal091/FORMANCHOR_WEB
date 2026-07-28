@@ -13,7 +13,7 @@ from email_service import send_contact_notification
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("formpilot-backend")
+logger = logging.getLogger("formanchor-backend")
 
 # Initialize Rate Limiter
 limiter = Limiter(key_func=get_remote_address)
@@ -26,8 +26,8 @@ async def lifespan(app: FastAPI):
 
 # Create FastAPI application
 app = FastAPI(
-    title="FormPilot API",
-    description="Backend API for FormPilot Web Showcase and Contact Submissions",
+    title="FormAnchor API",
+    description="Backend API for FormAnchor Web Showcase and Contact Submissions",
     version="1.0.0",
     lifespan=lifespan
 )
