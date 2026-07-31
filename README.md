@@ -16,6 +16,7 @@ A dark, glassmorphic landing page — built with React, TypeScript, and a rate-l
 </div>
 
 ---
+📖 See [USER_GUIDE.md](./USER_GUIDE.md) for extension installation and usage instructions.
 
 ## 📚 Table of Contents
 
