@@ -16,11 +16,12 @@ export default function Home() {
         <h1>
           <span className="gradient-text">Automate Form Filling</span>
           <br />
-          and Get More Done Together
+          and Get More Done at Scale
         </h1>
         <p className="hero-subtitle">
-          Record your workflows once, map data from Excel or CSV, and let FormAnchor
-          execute tedious data entry tasks with pinpoint accuracy across your entire team.
+          Record your workflow once, map data from Excel or CSV, and let FormAnchor
+          push it through hundreds of government-grade, multi-page forms — accurately,
+          and entirely on your machine.
         </p>
         <div className="hero-ctas">
           <a href="#/install" className="btn btn-primary">
@@ -106,40 +107,37 @@ export default function Home() {
             <div className="feature-icon blue">
               <Icon name="bolt" />
             </div>
-            <h3>Boost Team Productivity</h3>
+            <h3>Self-Healing Selectors</h3>
             <p>
-              Automate repetitive form-filling tasks across your entire organization,
-              saving thousands of hours and reducing human error to zero.
+              An 8-strategy fallback pipeline with Shadow DOM piercing means a single DOM tweak on the target site doesn't break your whole run.
             </p>
           </div>
           <div className="feature-card glass-card">
             <div className="feature-icon violet">
-              <Icon name="folder_shared" />
+              <Icon name="lock" />
             </div>
-            <h3>Effortless Document Sharing</h3>
+            <h3>100% Local & Encrypted</h3>
             <p>
-              Share recorded flows and mapped datasets securely with team members,
-              ensuring consistent data entry standards company-wide.
+              Every recording and spreadsheet row is AES-256 encrypted at rest in your browser's IndexedDB. Nothing is ever transmitted anywhere.
             </p>
           </div>
           <div className="feature-card glass-card">
             <div className="feature-icon green">
-              <Icon name="verified_user" />
+              <Icon name="history" />
             </div>
-            <h3>Enhanced Team Accountability</h3>
+            <h3>Resumable Multi-Page Flows</h3>
             <p>
-              Track execution logs, monitor success rates, and maintain a clear
-              audit trail of every automated submission for compliance.
+              If a run stalls or a tab closes mid-flow, FormAnchor's State Manager resumes from the last confirmed step instead of starting over.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Collaboration Section ── */}
+      {/* ── Built for Reliability Section ── */}
       <section className="section fade-in-section">
         <div className="section-header">
           <h2>
-            Work Smarter <span className="gradient-text">Together</span>
+            Built for <span className="gradient-text">Reliability</span>
           </h2>
         </div>
 
@@ -147,34 +145,34 @@ export default function Home() {
         <div className="collab-row">
           <div className="collab-content">
             <div className="collab-badge blue">
-              <Icon name="group" size={14} />
-              Collaboration
+              <Icon name="auto_stories" size={14} />
+              Workflows
             </div>
-            <h3>Real-Time Collaborative Task Management</h3>
+            <h3>Recordings You Can Reuse</h3>
             <p>
-              Assign specific forms, datasets, or execution flows to individual team members.
-              Track progress in real-time and resolve mapping conflicts collaboratively within the dashboard.
+              Record a form sequence once and save it locally as a named workflow.
+              Switch seamlessly between different form templates without re-recording.
             </p>
             <ul className="collab-list">
               <li>
                 <Icon name="check_circle" size={18} className="icon" />
-                Role-based access control
+                Local workflow switcher & step editor
               </li>
               <li>
                 <Icon name="check_circle" size={18} className="icon" />
-                Shared template libraries
+                Automatic element & selector deduplication
               </li>
             </ul>
           </div>
           <div className="collab-visual">
             <div className="glass-card collab-card blue-glow">
               <div className="collab-card-row">
-                <div className="collab-avatar">JD</div>
+                <div className="collab-avatar">FA</div>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', lineHeight: 1.2 }}>John Doe</div>
-                  <div style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.2 }}>Data Operator</div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', lineHeight: 1.2 }}>Local Operator</div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.2 }}>Offline Sandbox</div>
                 </div>
-                <span className="collab-status active">Active</span>
+                <span className="collab-status active">Ready</span>
               </div>
               <div className="collab-item">
                 <Icon name="description" size={18} style={{ color: 'var(--primary)' }} />
@@ -195,15 +193,15 @@ export default function Home() {
           <div className="collab-content">
             <div className="collab-badge violet">
               <Icon name="notifications_active" size={14} />
-              Monitoring
+              Resilience
             </div>
-            <h3>Customizable Notifications and Alerts</h3>
+            <h3>CAPTCHA-Aware Execution</h3>
             <p>
-              Stay informed when critical form submissions complete or if mapping errors occur.
-              Configure alerts via email, Slack, or in-app notifications based on specific triggers.
+              When a CAPTCHA or bot challenge is detected, execution pauses automatically and fires a Chrome desktop notification.
+              Solve the challenge manually and resume execution with one click.
             </p>
-            <a href="#/about" className="explore-link">
-              Explore integrations
+            <a href="#/security" className="explore-link">
+              View Security Policy
               <Icon name="arrow_forward" size={16} />
             </a>
           </div>
@@ -214,8 +212,8 @@ export default function Home() {
                   <Icon name="done_all" size={16} />
                 </div>
                 <div>
-                  <h4>Batch Submission Complete</h4>
-                  <p>Q3 Tax forms (142 records) processed successfully.</p>
+                  <h4>Execution Checkpoint Saved</h4>
+                  <p>Row 42 of 100 state snapshot persisted to IndexedDB.</p>
                   <span className="alert-time">Just now</span>
                 </div>
               </div>
@@ -224,8 +222,8 @@ export default function Home() {
                   <Icon name="error" size={16} />
                 </div>
                 <div>
-                  <h4>Mapping Error Detected</h4>
-                  <p>Field 'Company ID' missing in row 42 of client_data.csv.</p>
+                  <h4>CAPTCHA Challenge Paused</h4>
+                  <p>Solve reCAPTCHA in active tab to resume automation loop.</p>
                   <span className="alert-time">2 mins ago</span>
                 </div>
               </div>

@@ -29,11 +29,11 @@ export default function Faq() {
     },
     {
       q: "How does it handle CAPTCHAs and bot protection systems?",
-      a: "FormAnchor includes a real-time ResponseDetectionEngine. When it encounters a CAPTCHA challenge (like Cloudflare Turnstile or Google reCAPTCHA), it freezes the automation run loop, plays a warning chime, and shows a glassmorphic overlay prompting the human user to resolve the challenge. Once solved, automation resumes immediately."
+      a: "FormAnchor includes a real-time ResponseDetectionEngine. When it encounters a CAPTCHA challenge (like Cloudflare Turnstile or Google reCAPTCHA), it pauses the run and surfaces a resume prompt in the FormAnchor dashboard, along with a Chrome desktop notification so you don't have to keep the tab in view. Once you solve the CAPTCHA, resume execution with one click."
     },
     {
       q: "Is there a row limit for Excel uploads?",
-      a: "There is no hard limit built into FormAnchor. The extension uses client-side pagination chunks of 50 rows, loading only what is active into storage. We have successfully tested automation runs containing over 500 rows with zero performance bottlenecks."
+      a: "There is no hard limit built into FormAnchor. The extension uses client-side pagination chunks of 50 rows, loading only what is active into storage. Designed to handle large datasets via 50-row client-side chunking, so memory stays flat no matter how big your spreadsheet is."
     },
     {
       q: "What happens if a single form field fails to load?",
