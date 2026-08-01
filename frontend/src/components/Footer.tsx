@@ -1,4 +1,3 @@
-import Icon from './Icon'
 
 export default function Footer() {
   const handleNav = (hash: string) => {
@@ -11,9 +10,7 @@ export default function Footer() {
       <div className="container footer-container">
         {/* Brand */}
         <a href="#/" className="logo" onClick={() => handleNav('#/')}>
-          <div className="logo-icon" style={{ width: 24, height: 24, borderRadius: 6 }}>
-            <Icon name="anchor" filled size={14} />
-          </div>
+          <img src="/icon-128.png" alt="FormAnchor Logo" style={{ width: 24, height: 24, objectFit: 'contain' }} />
           <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 18, color: 'var(--text)' }}>
             FormAnchor
           </span>

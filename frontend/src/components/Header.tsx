@@ -30,8 +30,8 @@ export default function Header({ currentRoute, theme, onToggleTheme }: HeaderPro
         <div className="container header-container">
           {/* Brand */}
           <a href="#/" className="logo" onClick={() => handleNav('#/')}>
-            <div className="logo-icon">
-              <Icon name="anchor" filled size={18} />
+            <div className="logo-icon" style={{ background: '#ffffff', border: '1px solid rgba(255,255,255,0.4)', borderRadius: 10, padding: 3, width: 34, height: 34, boxShadow: '0 2px 8px rgba(0,0,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src="/icon-128.png" alt="FormAnchor Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <span className="logo-text">FormAnchor</span>
           </a>

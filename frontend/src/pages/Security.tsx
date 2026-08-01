@@ -99,7 +99,7 @@ export default function Security() {
       <section className="fade-in-section" style={{ textAlign: 'center', marginBottom: 128 }}>
         <div className="compliance-badges">
           <div className="compliance-badge">Manifest V3 Compliant</div>
-          <div className="compliance-badge">Chrome Web Store Policy Certified</div>
+          <div className="compliance-badge">Built to Chrome Web Store Policy</div>
           <div className="compliance-badge">No Remote Code Execution</div>
         </div>
       </section>
