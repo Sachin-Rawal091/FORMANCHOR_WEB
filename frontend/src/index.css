@@ -1759,3 +1759,352 @@ img, video { max-width: 100%; height: auto; }
   .hero h1 { font-size: 2rem; }
   .tech-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Compact Coming Soon Banner ── */
+.coming-soon-banner-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+}
+
+.banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.banner-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(91, 140, 255, 0.1);
+  border: 1px solid rgba(91, 140, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-left h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.banner-left p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.banner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.banner-subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner-input {
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-glass);
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text);
+  font-size: 14px;
+  width: 240px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+[data-theme="light"] .banner-input {
+  background: rgba(255, 255, 255, 0.8);
+}
+.banner-input:focus {
+  border-color: var(--primary);
+}
+
+.banner-btn {
+  padding: 10px 20px !important;
+  font-size: 13px !important;
+  white-space: nowrap;
+}
+
+.banner-status-msg {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+.banner-status-msg.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.banner-status-msg.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ── Vertical Timeline Installation Guide ── */
+.install-timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(91, 140, 255, 0.3), rgba(124, 58, 237, 0.3), rgba(255, 255, 255, 0.05));
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+.timeline-item.right {
+  justify-content: flex-end;
+}
+
+.timeline-item.left {
+  justify-content: flex-start;
+}
+
+.timeline-item .timeline-content {
+  width: calc(50% - 40px);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item .timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(91, 140, 255, 0.1);
+}
+
+.timeline-badge {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(91, 140, 255, 0.25);
+}
+
+.step-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.step-card-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.timeline-content p:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: gap 0.2s ease;
+}
+.timeline-action-link:hover {
+  gap: 10px;
+  color: var(--primary-hover);
+}
+
+.code-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 13px;
+  color: var(--primary);
+  margin-top: 4px;
+}
+[data-theme="light"] .code-badge {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ── Permissions Grid (3 Column Centered) ── */
+.permissions-grid.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.text-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.permission-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.permission-icon-wrapper.blue {
+  background: rgba(91, 140, 255, 0.1);
+  border: 1px solid rgba(91, 140, 255, 0.25);
+  color: var(--primary);
+}
+.permission-icon-wrapper.violet {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  color: var(--accent);
+}
+.permission-icon-wrapper.green {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--success);
+}
+
+.permission-card {
+  padding: 32px 24px;
+}
+
+.permission-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.permission-card p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Troubleshooting Accordion ── */
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accordion-item {
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.accordion-item.open {
+  border-color: rgba(91, 140, 255, 0.3);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-body {
+  padding: 0 24px 20px 24px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  border-top: 1px solid var(--border-glass);
+  padding-top: 16px;
+}
+
+/* Responsive adjustments for timeline */
+@media (max-width: 768px) {
+  .install-timeline {
+    padding-left: 48px;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-badge {
+    left: 20px;
+  }
+  .timeline-item.left,
+  .timeline-item.right {
+    justify-content: flex-start;
+  }
+  .timeline-item .timeline-content {
+    width: 100%;
+  }
+  .coming-soon-banner-compact {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .banner-right {
+    width: 100%;
+    align-items: stretch;
+  }
+  .banner-subscribe-form {
+    width: 100%;
+  }
+  .banner-input {
+    flex: 1;
+    width: auto;
+  }
+}
+
