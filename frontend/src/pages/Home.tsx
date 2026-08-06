@@ -28,15 +28,11 @@ export default function Home() {
             Get Started for Free
             <Icon name="arrow_forward" size={16} />
           </a>
-          <a href="#/about" className="btn btn-ghost">
-            <Icon name="play_circle" size={16} />
-            Watch Demo
-          </a>
         </div>
       </section>
 
       {/* ── Product Showcase Demo ── */}
-      <section className="fade-in-section" style={{ marginBottom: 128, padding: '0 16px' }}>
+      <section id="demo" className="fade-in-section" style={{ marginBottom: 128, padding: '0 16px' }}>
         <div className="product-showcase">
           <div className="product-showcase-gradient" />
           <div className="product-showcase-inner">
