@@ -1,6 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
 import sachinAvatar from '../assets/sachin_avatar.png'
+import formAnchorDemoVideo from '../assets/FORMANCHOR_Demo_With_Captions.mp4'
 
 const techStack = [
   { name: 'Chrome MV3', icon: 'extension', color: 'rgba(255, 255, 255, 0.7)' },
@@ -56,6 +57,45 @@ export default function About() {
               <p>{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Video Showcase Demo */}
+        <div className="product-showcase" style={{ marginTop: 48 }}>
+          <div className="product-showcase-gradient" />
+          <div className="product-showcase-inner">
+            <div className="mock-browser-bar">
+              <div className="mock-dots">
+                <div className="mock-dot red" />
+                <div className="mock-dot yellow" />
+                <div className="mock-dot green" />
+              </div>
+              <div className="mock-url-bar">
+                <Icon name="lock" size={12} style={{ opacity: 0.7 }} />
+                <span>chrome-extension://formanchor/full-pipeline-demo</span>
+              </div>
+              <div className="mock-badge">
+                <span className="live-dot" />
+                Live Execution Demo
+              </div>
+            </div>
+            <div className="showcase-video-wrapper">
+              <video
+                src={formAnchorDemoVideo}
+                autoPlay
+                loop
+                muted
+                controls
+                playsInline
+                className="showcase-video"
+              />
+              <div className="showcase-video-overlay">
+                <div className="showcase-status-tag">
+                  <Icon name="bolt" size={14} style={{ color: '#60a5fa' }} />
+                  <strong style={{ color: '#60a5fa', fontWeight: 600 }}>FormAnchor Active</strong> — End-to-End Automation Walkthrough
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
