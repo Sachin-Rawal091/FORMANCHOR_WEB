@@ -173,7 +173,7 @@ This produces an optimized static bundle in `frontend/dist/`. Upload it to any s
 
 ## 🔗 Related Project
 
-This site showcases **[FormAnchor](https://github.com/Sachin-Rawal091/FORMANCHOR)** — a Chrome extension that records a form-filling flow once and replays it across spreadsheet rows, with self-healing selectors for real-world, multi-page forms. If you're here for the product itself rather than the marketing site, that's where the code lives.
+This site showcases **[FormAnchor](./FormAnchor.md)** — a Chrome extension that records a form-filling flow once and replays it across spreadsheet rows, with self-healing selectors for real-world, multi-page forms. If you're here for the product itself rather than the marketing site, that's where the code lives.
 
 ---
 
