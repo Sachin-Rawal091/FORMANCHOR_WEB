@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Custom hook that adds a scroll-reveal fade-in animation to elements
- * with the class "fade-in-section". Uses IntersectionObserver to trigger
- * the "is-visible" class when elements enter the viewport.
+ * Custom hook that adds smooth entrance animations to sections
+ * with the class "fade-in-section" or "reveal-on-scroll".
  *
- * Respects prefers-reduced-motion: if reduced motion is preferred,
- * all sections start visible immediately.
+ * Fail-safe: elements in viewport are visible immediately without blank flashes.
  */
 export function useScrollReveal() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -15,12 +13,13 @@ export function useScrollReveal() {
     const container = containerRef.current
     if (!container) return
 
-    // Respect reduced-motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) {
-      container.querySelectorAll('.fade-in-section').forEach((el) => {
-        el.classList.add('is-visible')
-      })
+    if (prefersReducedMotion) return
+
+    const elements = container.querySelectorAll<HTMLElement>('.fade-in-section, .reveal-on-scroll, .section, .hero, .pricing-card, .pipeline-card, .feature-card')
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((el) => el.classList.add('is-visible'))
       return
     }
 
@@ -33,11 +32,17 @@ export function useScrollReveal() {
           }
         })
       },
-      { root: null, rootMargin: '0px', threshold: 0.1 }
+      { root: null, rootMargin: '60px 0px 60px 0px', threshold: 0.05 }
     )
 
-    container.querySelectorAll('.fade-in-section').forEach((section) => {
-      observer.observe(section)
+    elements.forEach((el) => {
+      el.classList.add('reveal-item')
+      const rect = el.getBoundingClientRect()
+      if (rect.top < window.innerHeight) {
+        el.classList.add('is-visible')
+      } else {
+        observer.observe(el)
+      }
     })
 
     return () => observer.disconnect()
