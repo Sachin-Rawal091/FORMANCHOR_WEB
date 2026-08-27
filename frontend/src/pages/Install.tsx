@@ -1,259 +1,177 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
-import { getApiUrl, isValidEmail } from '../utils/api'
 
 export default function Install() {
   const containerRef = useScrollReveal()
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [statusMessage, setStatusMessage] = useState('')
-  const [openFaq, setOpenFaq] = useState<number | null>(0)
+  const [copied, setCopied] = useState(false)
 
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email.trim() || !isValidEmail(email)) {
-      setStatus('error')
-      setStatusMessage('Please enter a valid email address.')
-      return
-    }
-
-    setStatus('submitting')
-    const API_URL = getApiUrl('/api/subscribe')
-
-    try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setStatus('success')
-        setStatusMessage(data.message || 'Subscribed successfully!')
-        setEmail('')
-      } else {
-        setStatus('error')
-        setStatusMessage(data.detail || 'An error occurred. Please try again.')
-      }
-    } catch (err) {
-      console.error(err)
-      setStatus('error')
-      setStatusMessage('Unable to connect to the server. Please verify the backend is running.')
-    }
+  const copyExtensionsUrl = () => {
+    navigator.clipboard.writeText('chrome://extensions')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
-
-  const faqItems = [
-    {
-      q: 'Extension not loading or appearing in toolbar?',
-      a: 'Make sure Developer Mode remains enabled in Chrome. If you move or rename the unpacked folder on your machine, Chrome loses track of it and you will need to click "Load unpacked" again to select the folder.'
-    },
-    {
-      q: '"Manifest file is missing or unreadable" error?',
-      a: 'Ensure you extracted the downloaded ZIP file first and selected the inner unzipped folder containing manifest.json, rather than selecting the compressed ZIP file directly.'
-    },
-    {
-      q: 'Does it work in Incognito windows?',
-      a: 'By default, Chrome disables extensions in Incognito mode. Open chrome://extensions, locate FormPilot, click "Details", and toggle the "Allow in Incognito" switch on.'
-    }
-  ]
 
   return (
     <div ref={containerRef}>
-      {/* Page Hero */}
-      <section className="page-hero fade-in-section">
+      {/* ── Page Hero ── */}
+      <section className="hero js-scroll-reveal">
+        <div className="hero-pill-tag">
+          <span className="pill-badge primary">
+            <Icon name="download" size={14} /> Installation Guide
+          </span>
+        </div>
         <h1>
-          <span className="gradient-text">Install FormPilot</span>
+          Install FormAnchor <br />
+          <span className="gradient-text">In Under 2 Minutes</span>
         </h1>
-        <p>Follow this quick guide to manually install the FormPilot Chrome Extension while we prepare our official Web Store release.</p>
+        <p className="hero-subtitle">
+          Follow this step-by-step walkthrough to load the verified developer build
+          or install directly from the Chrome Web Store.
+        </p>
       </section>
 
-      {/* Chrome Web Store Coming Soon Banner */}
-      <section className="fade-in-section" style={{ maxWidth: 860, margin: '0 auto 64px auto', padding: '0 16px' }}>
-        <div className="coming-soon-banner-compact glass-card">
-          <div className="banner-left">
-            <div className="banner-icon-badge">
-              <Icon name="install_desktop" size={24} className="text-primary" />
-            </div>
-            <div>
-              <h3>Coming Soon to Chrome Web Store</h3>
-              <p>Join the waitlist to get notified the moment we launch.</p>
-            </div>
+      {/* ── Chrome Web Store Status Card ── */}
+      <section className="container js-scroll-reveal" style={{ maxWidth: 860, marginBottom: 48 }}>
+        <div className="glass-card" style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+          <div className="pipeline-icon-circle" style={{ width: 50, height: 50, flexShrink: 0 }}>
+            <Icon name="verified_user" size={24} />
           </div>
-          <div className="banner-right">
-            {status === 'success' && (
-              <div className="banner-status-msg success">{statusMessage}</div>
-            )}
-            {status === 'error' && (
-              <div className="banner-status-msg error">{statusMessage}</div>
-            )}
-            <form onSubmit={handleSubscribe} className="banner-subscribe-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="banner-input" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={status === 'submitting'}
-                required
-              />
-              <button 
-                type="submit" 
-                className="btn btn-primary banner-btn" 
-                disabled={status === 'submitting'}
-              >
-                {status === 'submitting' ? 'Submitting...' : 'Get Notified'}
-              </button>
-            </form>
+          <div style={{ flex: 1, minWidth: 240 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <h4>Chrome Web Store Official Listing</h4>
+              <span className="pill-badge primary" style={{ fontSize: '0.75rem' }}>Coming Soon</span>
+            </div>
+            <p style={{ fontSize: '0.88rem', marginTop: 4 }}>
+              The packaged store version is currently under final review. You can install the verified developer build immediately below.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Manual Installation Guide Section */}
-      <section className="section fade-in-section" style={{ maxWidth: 960, margin: '0 auto 128px auto', padding: '0 16px' }}>
-        <div className="section-header" style={{ marginBottom: 64 }}>
-          <h2>Manual Installation Guide</h2>
-        </div>
-
-        <div className="install-timeline">
-          {/* Central Vertical Line */}
-          <div className="timeline-line" />
-
-          {/* Step 1: Download Release (Right card, Left badge) */}
-          <div className="timeline-item right">
-            <div className="timeline-badge">1</div>
-            <div className="timeline-content glass-card">
-              <div className="step-card-header">
-                <Icon name="download" size={20} className="text-primary" />
-                <h3>Download Release</h3>
-              </div>
-              <p>Get the latest ".zip" release file directly from our secure GitHub repository.</p>
-              <a 
-                href="https://github.com/Sachin-Rawal091/FormPilot/releases" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="timeline-action-link"
-              >
-                Download from GitHub <Icon name="arrow_forward" size={14} />
-              </a>
-            </div>
-          </div>
-
-          {/* Step 2: Unzip File (Left card, Right badge) */}
-          <div className="timeline-item left">
-            <div className="timeline-badge">2</div>
-            <div className="timeline-content glass-card">
-              <div className="step-card-header">
-                <Icon name="folder_zip" size={20} className="text-primary" />
-                <h3>Unzip File</h3>
-              </div>
-              <p>Extract the downloaded zip file into a folder on your computer. Remember this location.</p>
-            </div>
-          </div>
-
-          {/* Step 3: Open Extensions (Right card, Left badge) */}
-          <div className="timeline-item right">
-            <div className="timeline-badge">3</div>
-            <div className="timeline-content glass-card">
-              <div className="step-card-header">
-                <Icon name="extension" size={20} className="text-primary" />
-                <h3>Open Extensions</h3>
-              </div>
-              <p>Open a new tab in Chrome and navigate to the extensions management page.</p>
-              <div className="code-badge">
-                <span>chrome://extensions</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Step 4: Enable Developer Mode (Left card, Right badge) */}
-          <div className="timeline-item left">
-            <div className="timeline-badge">4</div>
-            <div className="timeline-content glass-card">
-              <div className="step-card-header">
-                <Icon name="toggle_on" size={20} className="text-primary" />
-                <h3>Enable Developer Mode</h3>
-              </div>
-              <p>Locate the "Developer mode" toggle in the top right corner of the page and turn it on.</p>
-            </div>
-          </div>
-
-          {/* Step 5: Load Unpacked (Right card, Left badge) */}
-          <div className="timeline-item right">
-            <div className="timeline-badge">5</div>
-            <div className="timeline-content glass-card">
-              <div className="step-card-header">
-                <Icon name="publish" size={20} className="text-primary" />
-                <h3>Load Unpacked</h3>
-              </div>
-              <p>Click the 'Load unpacked' button that appears in the top left and select the folder you extracted in Step 2.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Required Permissions Section */}
-      <section className="section fade-in-section" style={{ maxWidth: 1040, margin: '0 auto 128px auto', padding: '0 16px' }}>
+      {/* ── 5-Step Vertical Timeline ── */}
+      <section className="container js-scroll-reveal" style={{ maxWidth: 860, marginBottom: 80 }}>
         <div className="section-header">
-          <h2>Required Permissions</h2>
-          <p>We value your privacy. Here's exactly why FormPilot needs these standard permissions to function.</p>
+          <h2>Step-by-Step Installation</h2>
+          <p>Works on Google Chrome, Microsoft Edge, Brave, and all Chromium browsers.</p>
         </div>
 
-        <div className="permissions-grid three-col">
-          <div className="permission-card glass-card text-center">
-            <div className="permission-icon-wrapper blue">
-              <Icon name="tab" size={24} />
+        <div className="timeline">
+          {/* Step 1 */}
+          <div className="timeline-step">
+            <div className="timeline-number">1</div>
+            <div className="timeline-content glass-card">
+              <h3>Download FormAnchor Release (.zip)</h3>
+              <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+                Download the production-ready build archive from our GitHub releases page.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <a
+                  href="https://github.com/Sachin-Rawal091/FORMANCHOR/releases"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-sm"
+                >
+                  <Icon name="download" size={16} />
+                  Download formanchor-release.zip
+                </a>
+              </div>
             </div>
-            <h3>Active Tab</h3>
-            <p>Required to scan and inject data only into the specific form you are currently viewing and interacting with.</p>
           </div>
 
-          <div className="permission-card glass-card text-center">
-            <div className="permission-icon-wrapper violet">
-              <Icon name="database" size={24} />
+          {/* Step 2 */}
+          <div className="timeline-step">
+            <div className="timeline-number">2</div>
+            <div className="timeline-content glass-card">
+              <h3>Extract the Archive</h3>
+              <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+                Right-click the downloaded <code style={{ color: 'var(--primary)' }}>formanchor-release.zip</code> file and click <strong>Extract All...</strong> to a dedicated folder on your disk (e.g. <code>C:\Extensions\FormAnchor</code>).
+              </p>
             </div>
-            <h3>Storage</h3>
-            <p>Used locally on your device to securely save your profile data, settings, and form-filling preferences.</p>
           </div>
 
-          <div className="permission-card glass-card text-center">
-            <div className="permission-icon-wrapper green">
-              <Icon name="code" size={24} />
+          {/* Step 3 */}
+          <div className="timeline-step">
+            <div className="timeline-number">3</div>
+            <div className="timeline-content glass-card">
+              <h3>Open Chrome Extensions Manager</h3>
+              <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+                Open a new browser tab and navigate to Chrome's extension manager, or copy the URL below:
+              </p>
+              <div className="code-block" style={{ marginTop: 12 }}>
+                <code>chrome://extensions</code>
+                <button className="copy-btn" onClick={copyExtensionsUrl}>
+                  <Icon name={copied ? 'check' : 'content_copy'} size={14} />
+                  {copied ? 'Copied' : 'Copy'}
+                </button>
+              </div>
             </div>
-            <h3>Scripting</h3>
-            <p>Allows the extension to execute the automated filling logic directly within the context of complex web forms.</p>
+          </div>
+
+          {/* Step 4 */}
+          <div className="timeline-step">
+            <div className="timeline-number">4</div>
+            <div className="timeline-content glass-card">
+              <h3>Enable "Developer mode"</h3>
+              <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+                In the top-right corner of the Extensions page, toggle the <strong>Developer mode</strong> switch to <strong>ON</strong>.
+              </p>
+            </div>
+          </div>
+
+          {/* Step 5 */}
+          <div className="timeline-step">
+            <div className="timeline-number">5</div>
+            <div className="timeline-content glass-card">
+              <h3>Click "Load unpacked"</h3>
+              <p style={{ marginTop: 6, fontSize: '0.92rem' }}>
+                Click the <strong>Load unpacked</strong> button in the top-left toolbar and select the unzipped folder from Step 2. FormAnchor will immediately appear in your browser toolbar!
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Troubleshooting Accordion Section */}
-      <section className="section fade-in-section" style={{ maxWidth: 860, margin: '0 auto 128px auto', padding: '0 16px' }}>
-        <div className="section-header" style={{ marginBottom: 36 }}>
-          <h2 style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}>
-            <Icon name="build" size={28} className="text-primary" />
-            Troubleshooting
-          </h2>
+      {/* ── Permissions Transparency Grid ── */}
+      <section className="container js-scroll-reveal" style={{ maxWidth: 960, marginBottom: 80 }}>
+        <div className="section-header">
+          <span className="pill-badge emerald">
+            <Icon name="lock" size={14} /> Privacy & Permissions
+          </span>
+          <h2>Why FormAnchor Needs These Permissions</h2>
+          <p>We believe in 100% transparency. Here is exactly why each browser permission is requested.</p>
         </div>
 
-        <div className="accordion-list">
-          {faqItems.map((item, index) => (
-            <div key={index} className={`accordion-item glass-card ${openFaq === index ? 'open' : ''}`}>
-              <button 
-                className="accordion-header" 
-                onClick={() => setOpenFaq(openFaq === index ? null : index)}
-              >
-                <span>{item.q}</span>
-                <Icon name={openFaq === index ? 'expand_less' : 'expand_more'} size={20} />
-              </button>
-              {openFaq === index && (
-                <div className="accordion-body">
-                  <p>{item.a}</p>
-                </div>
-              )}
+        <div className="features-grid">
+          <div className="feature-card glass-card">
+            <div className="feature-icon-box">
+              <Icon name="tab" size={22} />
             </div>
-          ))}
+            <h4>Active Tab</h4>
+            <p style={{ fontSize: '0.88rem' }}>
+              Allows FormAnchor to inspect and fill form fields on the specific portal tab you are actively working in.
+            </p>
+          </div>
+
+          <div className="feature-card glass-card">
+            <div className="feature-icon-box">
+              <Icon name="storage" size={22} />
+            </div>
+            <h4>Local Storage (IndexedDB)</h4>
+            <p style={{ fontSize: '0.88rem' }}>
+              Stores your recorded workflows, column mappings, and execution logs 100% locally with AES-256 encryption.
+            </p>
+          </div>
+
+          <div className="feature-card glass-card">
+            <div className="feature-icon-box">
+              <Icon name="code" size={22} />
+            </div>
+            <h4>Scripting</h4>
+            <p style={{ fontSize: '0.88rem' }}>
+              Injects the self-healing selector engine and custom adapters (Select2, RMDP, AntD) into the portal DOM.
+            </p>
+          </div>
         </div>
       </section>
     </div>
