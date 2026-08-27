@@ -1,232 +1,364 @@
+import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import RowLedgerConsole from '../components/RowLedgerConsole'
 import autofillVideo from '../assets/autofill_demo.mp4'
 
 export default function Home() {
   const containerRef = useScrollReveal()
 
+  // Note: Portals section reserved for future additions once tested live on portals
+
   return (
     <div ref={containerRef}>
       {/* ── Hero Section ── */}
-      <section className="hero fade-in-section">
-        <div className="hero-badge">
-          <span className="hero-badge-dot" />
-          <span className="hero-badge-text">Automated Form Filling</span>
+      <section className="hero js-scroll-reveal">
+        <div className="hero-pill-tag">
+          <span className="pill-badge primary">
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--primary)', display: 'inline-block' }} />
+            FormAnchor v1.0.0 — Chrome MV3 Ready
+          </span>
         </div>
+
         <h1>
-          <span className="gradient-text">Automate Form Filling</span>
+          <span className="gradient-text">Record once,</span>
           <br />
-          and Get More Done at Scale
+          run every row.
         </h1>
+
         <p className="hero-subtitle">
-          Record your workflow once, map data from Excel or CSV, and let FormAnchor
-          push it through hundreds of government-grade, multi-page forms — accurately,
-          and entirely on your machine.
+          Automate hundreds of multi-page government and banking forms from Excel — 
+          100% locally in your browser with self-healing selectors and per-row crash recovery.
         </p>
-        <div className="hero-ctas">
-          <a href="#/install" className="btn btn-primary">
-            Get Started for Free
-            <Icon name="arrow_forward" size={16} />
+
+        <div className="hero-actions">
+          <a href="#/install" className="btn btn-primary btn-lg">
+            Install Extension — 100 Free Rows
+            <Icon name="arrow_forward" size={18} />
+          </a>
+          <a href="#/pricing" className="btn btn-outline btn-lg">
+            <Icon name="payments" size={18} />
+            View Pricing & ROI
           </a>
         </div>
-      </section>
 
-      {/* ── Product Showcase Demo ── */}
-      <section id="demo" className="fade-in-section" style={{ marginBottom: 128, padding: '0 16px' }}>
-        <div className="product-showcase">
-          <div className="product-showcase-gradient" />
-          <div className="product-showcase-inner">
-            {/* Fake browser chrome */}
-            <div className="mock-browser-bar">
-              <div className="mock-dots">
-                <div className="mock-dot red" />
-                <div className="mock-dot yellow" />
-                <div className="mock-dot green" />
-              </div>
-              <div className="mock-url-bar">
-                <Icon name="lock" size={12} style={{ opacity: 0.7 }} />
-                <span>chrome-extension://formanchor/autofill-demo</span>
-              </div>
-              <div className="mock-badge">
-                <span className="live-dot" />
-                Autofill Live Demo
-              </div>
-            </div>
-            {/* Live Recording Video Showcase */}
-            <div className="showcase-video-wrapper">
-              <video
-                src={autofillVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="showcase-video"
-              />
-              <div className="showcase-video-overlay">
-                <div className="showcase-status-tag">
-                  <Icon name="bolt" size={14} style={{ color: '#60a5fa' }} />
-                  <strong style={{ color: '#60a5fa', fontWeight: 600 }}>FormAnchor Engine Active</strong> — KRP Multi-Step Registration
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="hero-badges-row">
+          <span className="hero-stat-pill">
+            <Icon name="lock" size={14} /> 100% Local Sandbox (AES-256)
+          </span>
+          <span className="hero-stat-pill">
+            <Icon name="verified_user" size={14} /> 8-Tier Fallback Selectors
+          </span>
+          <span className="hero-stat-pill">
+            <Icon name="redeem" size={14} /> 100 Free Rows Forever
+          </span>
         </div>
       </section>
 
-      {/* ── Trust Bar (Commented out until trusted companies are added) ── */}
-      {/*
-      <section className="trust-bar fade-in-section">
+      {/* ── Signature Row Ledger Console Preview ── */}
+      <section className="container js-scroll-reveal" style={{ marginBottom: 60, maxWidth: 840 }}>
+        <RowLedgerConsole />
+      </section>
+
+      {/* ── Demo Video Showcase ── */}
+      <section className="container js-scroll-reveal" style={{ marginBottom: 80, maxWidth: 840 }}>
+        <div className="demo-showcase">
+          <div className="demo-chrome">
+            <div className="ledger-dots">
+              <div className="ledger-dot red" />
+              <div className="ledger-dot yellow" />
+              <div className="ledger-dot green" />
+            </div>
+            <div className="demo-url-bar">
+              <Icon name="lock" size={12} />
+              <span>chrome-extension://formanchor/autofill-demo</span>
+            </div>
+            <span className="ledger-status">
+              <span className="status-dot" />
+              Live Recorded Execution
+            </span>
+          </div>
+          <video
+            src={autofillVideo}
+            autoPlay loop muted playsInline
+            className="demo-video"
+          />
+        </div>
+      </section>
+
+      {/* ── 3-Step Pipeline ── */}
+      <section className="section">
         <div className="container">
-          <p>Trusted by over 40,000 teams and companies worldwide</p>
-          <div className="trust-logos">
-            <span className="trust-logo">StellarTech</span>
-            <span className="trust-logo">CascadeStyle</span>
-            <span className="trust-logo">Braincraze</span>
-            <span className="trust-logo">StackFlow</span>
-            <span className="trust-logo">Biomark</span>
+          <div className="section-header js-scroll-reveal">
+            <span className="pill-badge primary">
+              <Icon name="play_circle" size={14} /> 3-Step Pipeline
+            </span>
+            <h2>Three steps. Zero manual data entry.</h2>
+            <p>From one-time form recording to hundreds of verified submissions in minutes.</p>
           </div>
-        </div>
-      </section>
-      */}
 
-      {/* ── Features Grid ── */}
-      <section className="section fade-in-section">
-        <div className="section-header">
-          <h2>
-            Empower Your Workflow with{' '}
-            <span className="text-primary">Seamless Automation</span>
-          </h2>
-          <p>Stop manual data entry. Start focusing on what matters.</p>
-        </div>
-        <div className="features-grid">
-          <div className="feature-card glass-card">
-            <div className="feature-icon blue">
-              <Icon name="bolt" />
+          <div className="pipeline-grid">
+            <div className="pipeline-card glass-card js-scroll-reveal">
+              <div className="pipeline-step-badge">Step 01</div>
+              <div className="pipeline-icon-circle">
+                <Icon name="radio_button_checked" size={26} />
+              </div>
+              <h3>Record Once</h3>
+              <p>
+                Click through your form naturally. FormAnchor records inputs, multi-page navigations,
+                custom dropdowns, and datepickers with 8-strategy self-healing selectors.
+              </p>
             </div>
-            <h3>Self-Healing Selectors</h3>
-            <p>
-              An 8-strategy fallback pipeline with Shadow DOM piercing means a single DOM tweak on the target site doesn't break your whole run.
-            </p>
-          </div>
-          <div className="feature-card glass-card">
-            <div className="feature-icon violet">
-              <Icon name="lock" />
+
+            <div className="pipeline-card glass-card js-scroll-reveal">
+              <div className="pipeline-step-badge">Step 02</div>
+              <div className="pipeline-icon-circle" style={{ background: 'var(--teal-subtle)', color: 'var(--accent-teal)', borderColor: 'rgba(6, 182, 212, 0.3)' }}>
+                <Icon name="upload_file" size={26} />
+              </div>
+              <h3>Load Excel Spreadsheet</h3>
+              <p>
+                Upload any <code style={{ color: 'var(--accent-teal)' }}>.xlsx</code> or <code style={{ color: 'var(--accent-teal)' }}>.csv</code> file.
+                FormAnchor automatically maps columns to form fields with intelligent fuzzy header detection.
+              </p>
             </div>
-            <h3>100% Local & Encrypted</h3>
-            <p>
-              Every recording and spreadsheet row is AES-256 encrypted at rest in your browser's IndexedDB. Nothing is ever transmitted anywhere.
-            </p>
-          </div>
-          <div className="feature-card glass-card">
-            <div className="feature-icon green">
-              <Icon name="history" />
+
+            <div className="pipeline-card glass-card js-scroll-reveal">
+              <div className="pipeline-step-badge">Step 03</div>
+              <div className="pipeline-icon-circle" style={{ background: 'var(--emerald-subtle)', color: 'var(--accent-emerald)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+                <Icon name="play_arrow" size={26} />
+              </div>
+              <h3>Execute & Auto-Recover</h3>
+              <p>
+                Hit Run. FormAnchor fills row by row, waits for page transitions, checks submission confirmations,
+                and checkpoints progress so you can resume anytime.
+              </p>
             </div>
-            <h3>Resumable Multi-Page Flows</h3>
-            <p>
-              If a run stalls or a tab closes mid-flow, FormAnchor's State Manager resumes from the last confirmed step instead of starting over.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ── Built for Reliability Section ── */}
-      <section className="section fade-in-section">
-        <div className="section-header">
-          <h2>
-            Built for <span className="gradient-text">Reliability</span>
-          </h2>
-        </div>
-
-        {/* Row 1: Text left, Visual right */}
-        <div className="collab-row">
-          <div className="collab-content">
-            <div className="collab-badge blue">
-              <Icon name="auto_stories" size={14} />
-              Workflows
-            </div>
-            <h3>Recordings You Can Reuse</h3>
-            <p>
-              Record a form sequence once and save it locally as a named workflow.
-              Switch seamlessly between different form templates without re-recording.
-            </p>
-            <ul className="collab-list">
-              <li>
-                <Icon name="check_circle" size={18} className="icon" />
-                Local workflow switcher & step editor
-              </li>
-              <li>
-                <Icon name="check_circle" size={18} className="icon" />
-                Automatic element & selector deduplication
-              </li>
-            </ul>
+      {/* ── Core Engine Features Grid ── */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header js-scroll-reveal">
+            <span className="pill-badge teal">
+              <Icon name="precision_manufacturing" size={14} /> Production Engine
+            </span>
+            <h2>Engineered for complex, real-world portals.</h2>
+            <p>FormAnchor handles the dynamic DOM challenges where generic autofill tools fail.</p>
           </div>
-          <div className="collab-visual">
-            <div className="glass-card collab-card blue-glow">
-              <div className="collab-card-row">
-                <div className="collab-avatar">FA</div>
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', lineHeight: 1.2 }}>Local Operator</div>
-                  <div style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.2 }}>Offline Sandbox</div>
+
+          <div className="features-grid">
+            <div className="feature-card glass-card js-scroll-reveal">
+              <div className="feature-icon-box">
+                <Icon name="bolt" size={22} />
+              </div>
+              <h3>SmartWait Navigation</h3>
+              <p>
+                Intelligently waits for slow government portals, multi-page redirects, and SPA asynchronous
+                rendering before executing subsequent actions.
+              </p>
+            </div>
+
+            <div className="feature-card glass-card js-scroll-reveal">
+              <div className="feature-icon-box">
+                <Icon name="hub" size={22} />
+              </div>
+              <h3>8-Strategy Self-Healing</h3>
+              <p>
+                Deep DOM traversal with Shadow DOM piercing, fuzzy label matching, aria attributes,
+                and proximity scoring that survives portal layout updates.
+              </p>
+            </div>
+
+            <div className="feature-card glass-card js-scroll-reveal">
+              <div className="feature-icon-box">
+                <Icon name="calendar_month" size={22} />
+              </div>
+              <h3>Virtual Selects & Calendars</h3>
+              <p>
+                Custom adapters for Ant Design, Select2, Choices.js, and React Multi-DatePicker
+                widgets without requiring brittle pixel coordinates.
+              </p>
+            </div>
+
+            <div className="feature-card glass-card js-scroll-reveal">
+              <div className="feature-icon-box">
+                <Icon name="history" size={22} />
+              </div>
+              <h3>Per-Row AutoResume</h3>
+              <p>
+                Crashed tab or connection drop? FormAnchor saves per-row checkpoints in IndexedDB
+                and seamlessly resumes right where you left off.
+              </p>
+            </div>
+
+            <div className="feature-card glass-card js-scroll-reveal">
+              <div className="feature-icon-box">
+                <Icon name="lock" size={22} />
+              </div>
+              <h3>100% Local Sandbox</h3>
+              <p>
+                Spreadsheet data and recording configurations are AES-256 encrypted in IndexedDB.
+                Zero form data ever leaves your computer.
+              </p>
+            </div>
+
+            <div className="feature-card glass-card js-scroll-reveal">
+              <div className="feature-icon-box">
+                <Icon name="notifications_active" size={22} />
+              </div>
+              <h3>CAPTCHA-Aware Execution</h3>
+              <p>
+                Automatically detects CAPTCHA prompts, pauses execution, sounds a notification,
+                and resumes automatically after you solve it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Supported Portals & Frameworks (Reserved for future live additions) ── */}
+
+      {/* ── Pricing Preview ── */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header js-scroll-reveal">
+            <span className="pill-badge primary">
+              <Icon name="payments" size={14} /> Transparent Pricing
+            </span>
+            <h2>One-time credit packs. No subscriptions.</h2>
+            <p>Start free with 100 rows. Buy more only when you need them. Credits never expire.</p>
+          </div>
+
+          <div className="pricing-grid">
+            <div className="pricing-card glass-card js-scroll-reveal">
+              <div>
+                <span className="pill-badge">Starter</span>
+                <h3 style={{ marginTop: 12 }}>Free Community</h3>
+                <div className="pricing-price">
+                  ₹0 <span>/ forever</span>
                 </div>
-                <span className="collab-status active">Ready</span>
+                <p style={{ fontSize: '0.88rem' }}>Perfect for testing FormAnchor on your portal workflows.</p>
+                <ul className="pricing-features">
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> 100 Free Rows included
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Full 8-tier selector engine
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Local IndexedDB AES-256 storage
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Unlimited spreadsheet uploads
+                  </li>
+                </ul>
               </div>
-              <div className="collab-item">
-                <Icon name="description" size={18} style={{ color: 'var(--primary)' }} />
-                <span style={{ fontSize: 12, flex: 1, fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>krp_registration_flow.json</span>
-                <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', background: 'rgba(91, 140, 255, 0.12)', color: 'var(--primary)', padding: '2px 8px', borderRadius: 'var(--radius-full)', whiteSpace: 'nowrap' }}>Workflow</span>
+              <a href="#/install" className="btn btn-outline btn-block">Get Started Free</a>
+            </div>
+
+            <div className="pricing-card glass-card featured js-scroll-reveal">
+              <span className="pill-badge primary pricing-badge-popular">
+                <Icon name="star" size={12} /> Most Popular
+              </span>
+              <div>
+                <span className="pill-badge primary">High Volume</span>
+                <h3 style={{ marginTop: 12 }}>FormAnchor Go</h3>
+                <div className="pricing-price">
+                  ₹250 <span>/ one-time</span>
+                </div>
+                <p style={{ fontSize: '0.88rem' }}>Ideal for CSC operators and high-volume data entry tasks.</p>
+                <ul className="pricing-features">
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> <strong>700 Rows included</strong> (~₹0.35/row)
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> Credits never expire
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> All Dynamic UI adapters (RMDP, AntD)
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> AutoResume crash checkpoints
+                  </li>
+                </ul>
               </div>
-              <div className="collab-item" style={{ marginBottom: 0 }}>
-                <Icon name="table_chart" size={18} style={{ color: 'var(--success)' }} />
-                <span style={{ fontSize: 12, flex: 1, fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>krp_applicants.xlsx</span>
-                <span style={{ fontSize: 9, fontWeight: 700, textTransform: 'uppercase', background: 'rgba(16, 185, 129, 0.12)', color: 'var(--success)', padding: '2px 8px', borderRadius: 'var(--radius-full)', whiteSpace: 'nowrap' }}>Excel</span>
+              <a href="#/pricing" className="btn btn-primary btn-block">View Pack Details</a>
+            </div>
+
+            <div className="pricing-card glass-card js-scroll-reveal">
+              <div>
+                <span className="pill-badge emerald">Best Value</span>
+                <h3 style={{ marginTop: 12 }}>FormAnchor Pro</h3>
+                <div className="pricing-price">
+                  ₹500 <span>/ one-time</span>
+                </div>
+                <p style={{ fontSize: '0.88rem' }}>For enterprise operators and agencies filling thousands of rows.</p>
+                <ul className="pricing-features">
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> <strong>1,500 Rows included</strong> (~₹0.33/row)
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Lowest per-row cost
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Priority portal adapter support
+                  </li>
+                  <li className="pricing-feature-item included">
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> All Pro engine capabilities
+                  </li>
+                </ul>
               </div>
+              <a href="#/pricing" className="btn btn-outline btn-block">View Pack Details</a>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Row 2: Visual left, Text right (reversed) */}
-        <div className="collab-row reverse">
-          <div className="collab-content">
-            <div className="collab-badge violet">
-              <Icon name="notifications_active" size={14} />
-              Resilience
-            </div>
-            <h3>CAPTCHA-Aware Execution</h3>
-            <p>
-              When a CAPTCHA or bot challenge is detected, execution pauses automatically and fires a Chrome desktop notification.
-              Solve the challenge manually and resume execution with one click.
-            </p>
-            <a href="#/security" className="explore-link">
-              View Security Policy
-              <Icon name="arrow_forward" size={16} />
+      {/* ── Mini FAQ Preview ── */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header js-scroll-reveal">
+            <h2>Frequently Asked Questions</h2>
+            <p>Clear answers about how FormAnchor operates.</p>
+          </div>
+
+          <div className="faq-list">
+            {[
+              { q: 'What counts as "1 row"?', a: 'One successfully submitted form counts as 1 row credit. If a row fails validation, is skipped by the user, or encounters an error before final submission, zero credit is deducted.' },
+              { q: 'Is my Excel data uploaded to external servers?', a: 'No. Excel parsing, mapping, and execution all run 100% locally in your browser sandbox using IndexedDB with AES-256 encryption. Your form entries are never transmitted.' },
+              { q: 'Do purchased credits expire?', a: 'Never. FormAnchor uses one-time credit packs. Your credits stay in your account balance indefinitely with zero recurring subscription charges.' },
+              { q: 'Which browsers are supported?', a: 'FormAnchor is built for Google Chrome (Manifest V3) and works seamlessly on all Chromium-based browsers including Microsoft Edge, Brave, and Opera.' },
+            ].map((faq, i) => (
+              <FaqPreviewItem key={i} q={faq.q} a={faq.a} defaultOpen={i === 0} />
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 36 }}>
+            <a href="#/faq" className="btn btn-outline">
+              View Full FAQ & Help Center <Icon name="arrow_forward" size={16} />
             </a>
           </div>
-          <div className="collab-visual">
-            <div className="glass-card collab-card violet-glow">
-              <div className="alert-item">
-                <div className="alert-icon success">
-                  <Icon name="done_all" size={16} />
-                </div>
-                <div>
-                  <h4>Execution Checkpoint Saved</h4>
-                  <p>Row 42 of 100 state snapshot persisted to IndexedDB.</p>
-                  <span className="alert-time">Just now</span>
-                </div>
-              </div>
-              <div className="alert-item">
-                <div className="alert-icon error">
-                  <Icon name="error" size={16} />
-                </div>
-                <div>
-                  <h4>CAPTCHA Challenge Paused</h4>
-                  <p>Solve reCAPTCHA in active tab to resume automation loop.</p>
-                  <span className="alert-time">2 mins ago</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+    </div>
+  )
+}
+
+function FaqPreviewItem({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen)
+  return (
+    <div className="faq-item">
+      <button className="faq-question" onClick={() => setOpen(!open)}>
+        <span>{q}</span>
+        <Icon name={open ? 'expand_less' : 'expand_more'} size={20} style={{ color: 'var(--primary)' }} />
+      </button>
+      {open && (
+        <div className="faq-answer">
+          {a}
+        </div>
+      )}
     </div>
   )
 }
