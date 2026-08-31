@@ -41,11 +41,15 @@ export default function Pricing() {
               <ul className="pricing-features">
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span><strong>100 Free Rows</strong> included</span>
+                  <span><strong>100 Free Rows included</strong></span>
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span>Full 8-strategy selector engine</span>
+                  <span>Full access to all engine features</span>
+                </li>
+                <li className="pricing-feature-item included">
+                  <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
+                  <span>AutoResume crash recovery</span>
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
@@ -53,11 +57,7 @@ export default function Pricing() {
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span>Multi-page & multi-tab flows</span>
-                </li>
-                <li className="pricing-feature-item included">
-                  <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span>Excel & CSV spreadsheet parsing</span>
+                  <span>No payment or card required</span>
                 </li>
               </ul>
             </div>
@@ -88,11 +88,11 @@ export default function Pricing() {
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--primary)' }} />
-                  <span>Virtual Select & DatePicker adapters</span>
+                  <span>Full access to all engine features</span>
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--primary)' }} />
-                  <span>Per-row AutoResume crash recovery</span>
+                  <span>AutoResume & Virtual Select adapters</span>
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--primary)' }} />
@@ -120,7 +120,7 @@ export default function Pricing() {
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span>Lowest per-row rate</span>
+                  <span><strong>Lowest per-row rate</strong></span>
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
@@ -128,11 +128,11 @@ export default function Pricing() {
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span>Priority email support & adapter requests</span>
+                  <span>Full access to all engine features</span>
                 </li>
                 <li className="pricing-feature-item included">
                   <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} />
-                  <span>All current & future engine upgrades</span>
+                  <span>Priority email support & custom adapters</span>
                 </li>
               </ul>
             </div>
