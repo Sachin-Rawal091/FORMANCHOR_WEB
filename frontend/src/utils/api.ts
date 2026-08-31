@@ -6,7 +6,10 @@ export function getApiUrl(endpoint: string): string {
   const envBase = import.meta.env.VITE_API_BASE_URL
   const isLocal = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname)
   
-  const baseUrl = envBase || (isLocal ? 'http://localhost:8000' : 'https://formpilot-web.onrender.com')
+  // On local dev, point to local FastAPI backend (or Vite proxy).
+  // In production (Vercel), using relative '' routes through vercel.json rewrite proxy (/api/* -> Render backend),
+  // which makes it SAME-ORIGIN and completely avoids CORS blocks!
+  const baseUrl = envBase !== undefined ? envBase : (isLocal ? 'https://formpilot-web.onrender.com' : '')
   const formattedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
   
   return `${baseUrl}${formattedEndpoint}`
