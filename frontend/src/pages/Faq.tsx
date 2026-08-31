@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { SUPPORT_EMAIL } from '../constants'
 
-const FAQ_DATA = [
+export const FAQ_DATA = [
   {
     category: 'Credits & Quotas',
     items: [
@@ -136,7 +137,7 @@ export default function Faq() {
             Our team responds directly to operator questions, portal issues, and custom adapter requests within 24 hours.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <a href="mailto:sachinrawal473@gmail.com" className="btn btn-primary">
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="btn btn-primary">
               <Icon name="mail" size={16} /> Email Support
             </a>
             <a href="#/contact" className="btn btn-outline">

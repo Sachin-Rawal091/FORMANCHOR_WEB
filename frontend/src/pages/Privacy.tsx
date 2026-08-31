@@ -1,5 +1,6 @@
-﻿import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { SUPPORT_EMAIL } from '../constants'
 
 export default function Privacy() {
   const containerRef = useScrollReveal()
@@ -196,8 +197,8 @@ export default function Privacy() {
             <h3>6. Contact & Inquiries</h3>
             <p style={{ marginTop: 8 }}>
               If you have any questions regarding FormAnchor's privacy practices or security model, contact the developer directly at{' '}
-              <a href="mailto:sachinrawal473@gmail.com" style={{ color: 'var(--primary)', fontWeight: 600 }}>
-                sachinrawal473@gmail.com
+              <a href={`mailto:${SUPPORT_EMAIL}`} style={{ color: 'var(--primary)', fontWeight: 600 }}>
+                {SUPPORT_EMAIL}
               </a>.
             </p>
           </div>

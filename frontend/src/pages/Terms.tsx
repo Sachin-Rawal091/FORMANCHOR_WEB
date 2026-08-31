@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { SUPPORT_EMAIL } from '../constants'
 
 export default function Terms() {
   const containerRef = useScrollReveal()
@@ -10,48 +11,40 @@ export default function Terms() {
       <section className="hero js-scroll-reveal">
         <div className="hero-pill-tag">
           <span className="pill-badge primary">
-            <Icon name="gavel" size={14} /> Legal Terms
+            <Icon name="gavel" size={14} /> Legal Agreement
           </span>
         </div>
         <h1>
-          Terms of Service & <br />
-          <span className="gradient-text">License Agreement</span>
+          Terms of <span className="gradient-text">Service</span>
         </h1>
         <p className="hero-subtitle">
-          Last updated: August 2026. Clear, fair, and transparent conditions for using
-          the FormAnchor browser extension and credit packs.
+          Plain language guidelines for using FormAnchor's local-first Chrome extension and credit packs.
         </p>
       </section>
 
-      {/* ── Terms Content Sections ── */}
       <section className="container js-scroll-reveal" style={{ maxWidth: 860, marginBottom: 80 }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+
           <div className="glass-card">
-            <h3>1. Acceptance of Terms</h3>
+            <h3>1. Local Execution & License</h3>
             <p style={{ marginTop: 8 }}>
-              By downloading, installing, or executing the FormAnchor Chrome Extension, you agree to these Terms of Service.
-              If you do not agree to all terms, please remove the extension from your browser.
+              FormAnchor grants you a personal, non-exclusive license to run form automation workflows on your personal or business computer. The software runs entirely on your local machine using Chrome's extension runtime.
             </p>
           </div>
 
           <div className="glass-card">
-            <h3>2. Description of Service</h3>
+            <h3>2. User Ownership of Data</h3>
             <p style={{ marginTop: 8 }}>
-              FormAnchor is an in-browser automation tool designed to assist operators in filling complex, multi-page forms
-              from structured spreadsheets. All execution occurs on the user's computer under their direct supervision and control.
+              You retain 100% ownership of your Excel/CSV spreadsheets, recording steps, and form entries. FormAnchor does not claim any rights over data processed through the software.
             </p>
           </div>
 
           <div className="glass-card">
-            <h3>3. Credit Packs & Licensing</h3>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, marginTop: 12 }}>
+            <h3>3. Credit Packs & Deductions</h3>
+            <ul style={{ marginTop: 8, listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               <li style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                 <Icon name="check_circle" size={16} style={{ color: 'var(--accent-emerald)', marginTop: 3 }} />
-                <div><strong>100 Free Rows:</strong> Every user receives 100 free row submissions upon installation.</div>
-              </li>
-              <li style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                <Icon name="check_circle" size={16} style={{ color: 'var(--accent-emerald)', marginTop: 3 }} />
-                <div><strong>One-Time Packs:</strong> Top-up credits are sold as one-time packs, not recurring subscriptions.</div>
+                <div><strong>One-Time Purchases:</strong> All credit packs are one-time payments. No recurring monthly subscriptions or hidden renewal fees.</div>
               </li>
               <li style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                 <Icon name="check_circle" size={16} style={{ color: 'var(--accent-emerald)', marginTop: 3 }} />
@@ -75,11 +68,12 @@ export default function Terms() {
             <h3>5. Contact Information</h3>
             <p style={{ marginTop: 8 }}>
               For legal inquiries, licensing questions, or commercial deployments, contact{' '}
-              <a href="mailto:sachinrawal473@gmail.com" style={{ color: 'var(--primary)', fontWeight: 600 }}>
-                sachinrawal473@gmail.com
+              <a href={`mailto:${SUPPORT_EMAIL}`} style={{ color: 'var(--primary)', fontWeight: 600 }}>
+                {SUPPORT_EMAIL}
               </a>.
             </p>
           </div>
+
         </div>
       </section>
     </div>

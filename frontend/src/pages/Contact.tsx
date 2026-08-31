@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
 import { getApiUrl, isValidEmail } from '../utils/api'
+import { SUPPORT_EMAIL } from '../constants'
 
 interface ContactFormState {
   name: string
@@ -26,7 +27,7 @@ export default function Contact() {
   const [statusMessage, setStatusMessage] = useState('')
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('sachinrawal473@gmail.com')
+    navigator.clipboard.writeText(SUPPORT_EMAIL)
     setCopiedEmail(true)
     setTimeout(() => setCopiedEmail(false), 2000)
   }
@@ -280,7 +281,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="code-block" style={{ marginTop: 12 }}>
-                <code>sachinrawal473@gmail.com</code>
+                <code>{SUPPORT_EMAIL}</code>
                 <button className="copy-btn" onClick={copyEmail} type="button">
                   <Icon name={copiedEmail ? 'check' : 'content_copy'} size={14} />
                   {copiedEmail ? 'Copied' : 'Copy'}
@@ -336,7 +337,7 @@ export default function Contact() {
             <div className="glass-card" style={{ padding: 22 }}>
               <h4 style={{ marginBottom: 12 }}>Check Self-Service First</h4>
               <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', marginBottom: 14 }}>
-                Most portal setup questions and Excel formatting guidelines are covered in detail:
+                 Most portal setup questions and Excel formatting guidelines are covered in detail:
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <a href="#/docs" className="btn btn-outline btn-sm" style={{ justifyContent: 'flex-start' }}>
@@ -366,7 +367,7 @@ export default function Contact() {
               </div>
               <p style={{ fontSize: '0.82rem', lineHeight: 1.5, margin: 0, color: 'var(--text-secondary)' }}>
                 Found a potential vulnerability? Please do not open a public issue. Email details privately to{' '}
-                <strong style={{ color: 'var(--text-primary)' }}>sachinrawal473@gmail.com</strong>.
+                <strong style={{ color: 'var(--text-primary)' }}>{SUPPORT_EMAIL}</strong>.
               </p>
             </div>
 

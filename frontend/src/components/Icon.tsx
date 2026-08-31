@@ -13,6 +13,7 @@ interface IconProps {
 export default function Icon({ name, filled = false, size, className = '', style }: IconProps) {
   return (
     <span
+      aria-hidden="true"
       className={`material-symbols-outlined ${className}`}
       style={{
         fontVariationSettings: filled ? "'FILL' 1" : "'FILL' 0",

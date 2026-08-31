@@ -1,20 +1,27 @@
 import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { SUPPORT_EMAIL } from '../constants'
 
 const TABS = [
-  { id: 'quickstart', label: 'Quickstart Guide', icon: 'rocket_launch' },
-  { id: 'recording', label: 'Recording Flows', icon: 'radio_button_checked' },
-  { id: 'excel', label: 'Excel & CSV Setup', icon: 'table_chart' },
-  { id: 'adapters', label: 'Dynamic UI Adapters', icon: 'widgets' },
-  { id: 'resume', label: 'AutoResume & Recovery', icon: 'history' },
-  { id: 'troubleshoot', label: 'Troubleshooting', icon: 'build' },
+  { id: 'quickstart', label: 'Quickstart Guide', icon: 'rocket_launch', keywords: 'quickstart install pin setup 5-minute recording run' },
+  { id: 'recording', label: 'Recording Flows', icon: 'radio_button_checked', keywords: 'record recording red button step sequence click input select submit' },
+  { id: 'excel', label: 'Excel & CSV Setup', icon: 'table_chart', keywords: 'excel csv sheetjs column mapping headers serial dates values' },
+  { id: 'adapters', label: 'Dynamic UI Adapters', icon: 'widgets', keywords: 'adapters rmdp antd material select2 datepicker dropdown dynamic shadow dom' },
+  { id: 'resume', label: 'AutoResume & Recovery', icon: 'history', keywords: 'resume autoresume crash recovery indexeddb session timeout offline error checkpoint' },
+  { id: 'troubleshoot', label: 'Troubleshooting', icon: 'build', keywords: 'troubleshoot fix problem error failed slow portal delay slider timeout' },
 ]
 
 export default function Docs() {
   const containerRef = useScrollReveal()
   const [activeTab, setActiveTab] = useState('quickstart')
   const [searchQuery, setSearchQuery] = useState('')
+
+  const filteredTabs = TABS.filter(tab => {
+    if (!searchQuery.trim()) return true
+    const q = searchQuery.toLowerCase().trim()
+    return tab.label.toLowerCase().includes(q) || tab.keywords.includes(q)
+  })
 
   return (
     <div ref={containerRef}>
@@ -89,23 +96,29 @@ export default function Docs() {
             scrollbarWidth: 'none'
           }}
         >
-          {TABS.map(tab => (
-            <button
-              key={tab.id}
-              className={`pill-badge ${activeTab === tab.id ? 'primary active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-              style={{ 
-                padding: '10px 18px', 
-                fontSize: '0.88rem', 
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                transition: 'all var(--duration) var(--ease)'
-              }}
-            >
-              <Icon name={tab.icon} size={16} />
-              {tab.label}
-            </button>
-          ))}
+          {filteredTabs.length > 0 ? (
+            filteredTabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`pill-badge ${activeTab === tab.id ? 'primary active' : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{ 
+                  padding: '10px 18px', 
+                  fontSize: '0.88rem', 
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transition: 'all var(--duration) var(--ease)'
+                }}
+              >
+                <Icon name={tab.icon} size={16} />
+                {tab.label}
+              </button>
+            ))
+          ) : (
+            <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', padding: '8px 0' }}>
+              No guides match "{searchQuery}". Try searching for <em>datepickers</em>, <em>excel</em>, or <em>resume</em>.
+            </div>
+          )}
         </div>
 
         {/* Tab Content Display */}
@@ -139,7 +152,7 @@ export default function Docs() {
             </p>
           </div>
           <div style={{ display: 'flex', gap: 12 }}>
-            <a href="mailto:sachinrawal473@gmail.com" className="btn btn-primary">
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="btn btn-primary">
               <Icon name="mail" size={16} /> Email Support
             </a>
             <a href="https://github.com/Sachin-Rawal091/FORMANCHOR/issues" target="_blank" rel="noopener noreferrer" className="btn btn-outline">

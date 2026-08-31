@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sachin-rawal091.github.io/FormAnchor/sitemap.xml
+Sitemap: https://formanchor-web-three.vercel.app/sitemap.xml

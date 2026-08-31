@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { SUPPORT_EMAIL } from '../constants'
 import InteractiveCalculator from '../components/InteractiveCalculator'
 
 export default function Pricing() {
@@ -290,7 +291,7 @@ export default function Pricing() {
               <span>Is there a refund policy?</span>
             </div>
             <div className="faq-answer">
-              If FormAnchor does not work on your target portal even after following our guide, reach out to <code style={{ color: 'var(--primary)' }}>sachinrawal473@gmail.com</code> within 7 days of purchase for support or a full refund.
+              If FormAnchor does not work on your target portal even after following our guide, reach out to <code style={{ color: 'var(--primary)' }}>{SUPPORT_EMAIL}</code> within 7 days of purchase for support or a full refund.
             </div>
           </div>
         </div>
