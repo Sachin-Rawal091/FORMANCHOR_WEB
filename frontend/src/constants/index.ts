@@ -6,7 +6,7 @@ export const SUPPORT_EMAIL = 'sachinrawal473@gmail.com'
 
 export const CANONICAL_URL = 'https://formanchor-web-three.vercel.app'
 
-export const GITHUB_REPO_URL = 'https://github.com/Sachin-Rawal091/FormAnchor'
+export const GITHUB_REPO_URL = 'https://github.com/Sachin-Rawal091/FORMANCHOR_WEB'
 
 export const PREVIEW_FAQS = [
   { 

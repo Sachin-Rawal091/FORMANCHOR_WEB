@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { GITHUB_REPO_URL } from '../constants'
 
 export default function Install() {
   const containerRef = useScrollReveal()
@@ -67,7 +68,7 @@ export default function Install() {
               </p>
               <div style={{ marginTop: 14 }}>
                 <a
-                  href="https://github.com/Sachin-Rawal091/FORMANCHOR/releases"
+                  href={`${GITHUB_REPO_URL}/releases`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary btn-sm"

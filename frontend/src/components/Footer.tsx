@@ -1,4 +1,5 @@
 import Icon from './Icon'
+import { GITHUB_REPO_URL } from '../constants'
 
 export default function Footer() {
   const handleNav = (hash: string) => {
@@ -48,7 +49,7 @@ export default function Footer() {
               <li><a href="#/faq" className="footer-link" onClick={(e) => { e.preventDefault(); handleNav('#/faq') }}>FAQ</a></li>
               <li><a href="#/contact" className="footer-link" onClick={(e) => { e.preventDefault(); handleNav('#/contact') }}>Contact Support</a></li>
               <li>
-                <a href="https://github.com/Sachin-Rawal091/FORMANCHOR" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                   GitHub <Icon name="open_in_new" size={12} />
                 </a>
               </li>

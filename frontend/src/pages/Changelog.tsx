@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
+import { GITHUB_REPO_URL } from '../constants'
 
 export default function Changelog() {
   const containerRef = useScrollReveal()
@@ -120,7 +121,7 @@ export default function Changelog() {
             FormAnchor is developed openly on GitHub. View commit logs, tags, and automated test reports.
           </p>
           <a
-            href="https://github.com/Sachin-Rawal091/FORMANCHOR/releases"
+            href={`${GITHUB_REPO_URL}/releases`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"

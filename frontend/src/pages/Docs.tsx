@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
-import { SUPPORT_EMAIL } from '../constants'
+import { SUPPORT_EMAIL, GITHUB_REPO_URL } from '../constants'
 
 const TABS = [
   { id: 'quickstart', label: 'Quickstart Guide', icon: 'rocket_launch', keywords: 'quickstart install pin setup 5-minute recording run' },
@@ -155,7 +155,7 @@ export default function Docs() {
             <a href={`mailto:${SUPPORT_EMAIL}`} className="btn btn-primary">
               <Icon name="mail" size={16} /> Email Support
             </a>
-            <a href="https://github.com/Sachin-Rawal091/FORMANCHOR/issues" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            <a href={`${GITHUB_REPO_URL}/issues`} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               <Icon name="bug_report" size={16} /> GitHub Issues
             </a>
           </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Icon from '../components/Icon'
 import { getApiUrl, isValidEmail } from '../utils/api'
-import { SUPPORT_EMAIL } from '../constants'
+import { SUPPORT_EMAIL, GITHUB_REPO_URL } from '../constants'
 
 interface ContactFormState {
   name: string
@@ -291,7 +291,7 @@ export default function Contact() {
 
             {/* GitHub Repo */}
             <a
-              href="https://github.com/Sachin-Rawal091/FormAnchor"
+              href={GITHUB_REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card"
@@ -306,14 +306,14 @@ export default function Contact() {
                   <Icon name="open_in_new" size={14} style={{ color: 'var(--text-muted)' }} />
                 </div>
                 <p style={{ fontSize: '0.82rem', marginTop: 2, color: 'var(--text-secondary)' }}>
-                  Sachin-Rawal091/FormAnchor
+                  Sachin-Rawal091/FORMANCHOR_WEB
                 </p>
               </div>
             </a>
 
             {/* GitHub Issues */}
             <a
-              href="https://github.com/Sachin-Rawal091/FormAnchor/issues"
+              href={`${GITHUB_REPO_URL}/issues`}
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card"
