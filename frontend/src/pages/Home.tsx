@@ -243,16 +243,16 @@ export default function Home() {
                 <p style={{ fontSize: '0.88rem' }}>Perfect for testing FormAnchor on your portal workflows.</p>
                 <ul className="pricing-features">
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> 100 Free Rows included
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> <strong>100 Free Rows included</strong>
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Full 8-tier selector engine
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Full access to all engine features
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Local IndexedDB AES-256 storage
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> AutoResume crash recovery
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Unlimited spreadsheet uploads
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> 100% local AES-256 encrypted storage
                   </li>
                 </ul>
               </div>
@@ -275,13 +275,13 @@ export default function Home() {
                     <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> <strong>700 Rows included</strong> (~₹0.35/row)
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> Credits never expire
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> <strong>Credits never expire</strong>
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> All Dynamic UI adapters (RMDP, AntD)
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> Full access to all engine features
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> AutoResume crash checkpoints
+                    <Icon name="check" size={16} style={{ color: 'var(--primary)' }} /> AutoResume & Virtual Select adapters
                   </li>
                 </ul>
               </div>
@@ -301,13 +301,13 @@ export default function Home() {
                     <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> <strong>1,500 Rows included</strong> (~₹0.33/row)
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Lowest per-row cost
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> <strong>Lowest per-row rate</strong>
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Priority portal adapter support
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> <strong>Credits never expire</strong>
                   </li>
                   <li className="pricing-feature-item included">
-                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> All Pro engine capabilities
+                    <Icon name="check" size={16} style={{ color: 'var(--accent-emerald)' }} /> Priority email support & custom adapters
                   </li>
                 </ul>
               </div>
